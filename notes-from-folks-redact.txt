@@ -75,3 +75,18 @@ Alfredo Ortega (@OrtegaAlfredo)
 
 RF survery, winvote printer. Emitting a bunch of RF. Were not able to correlate with specific action. Some very low signal. HackRF -- software defined radio.
 
+# Models of equipment in the Village
+
+Courtesy of Ryan Macias, who kept good notes on make, model, and
+software versions. (please let us know if you have any additional or
+different information!)
+
+* ES&S iVotronic -- Hardware Revision 1.1 (ES&S Code IV 1.24.15.a);
+  * PEB (personalized electronic ballot module) version 1.7c-PEB-S
+    **[Note: the first set of information is from the voting unit, the
+    second is from the PEB]**
+* Premier AccuVote -- TS Unit Model Number AV-TSx; firmware 4.7.8
+* Sequoia AVC Edge; version 5.0.24 **[Note: unsure if Edge I or Edge
+  II]**
+* AVS WinVote version 1.5.4 **[Note: did not capture HW version]**
+* Diebold Express Poll 5000; version 2.1.1
