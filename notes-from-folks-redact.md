@@ -2,7 +2,47 @@
 
 Sean Roach (@TheEdgeyDev) & TJ Horner (@tjhorner) & Ian Smith
 
-Found a few physical things and a few software things. Main physical thing, sqlite 3 databae on compactflash in the clear. The only thing stopping someone from taking it out is one screw, philips head. This would have allowed us to be able to do a DOS, by removing the card. take a schema of that db, make it without any users. the put it back in with no users. everyon afterwards would not be registereed in that county or precinct, go to another polling staton, 30 minute line would grow precipitously. selectively DOS counties or precicnts that are for your . username and password released on a PDF by state of maryland. plug in a blank drive because we didn't have a database. missing hte swllite file. missing file... create file... missing table.. create table. username as 1 password as 1111. consolidationg ID we utrnined into defdcon. gave us access into  trying use bashbunny, USB thing that emulates a keyboard. sending A's at it to overflow the the text field... Windows CE 5 ... .Net app... trying to get it to fill ram and the ram manager will close that app. they were able to read the fields. realized wireshark to see what ports 80, 443, 5002 (sounds like an error broadcast, doesn't accept any connectinons). 443 closes the connection.
+Found a few physical things and a few software things. Main physical
+thing: there was an sqlite 3 databae on compactflash (CF) which is
+written/stored/etc. in the clear (unencrypted). The only thing
+stopping someone from taking this CF card out is one screw, a philips
+head screw -- not even a type of security screw. This would have
+allowed us to be able to do a DoS attack, by simply removing the
+card.
+
+While we didn't have access to a resident database (JLH: this may have
+been after discovery of a resident DB with 650k voter records on it)
+we were able to make a schema of that db, and initialize it without
+any users. Then we could put it back in with no users. Everyone
+afterwards would not be registereed in that county or precinct, they
+would be identified as not registered in that polling place or
+precinct, and they would have likely had to go to another polling
+staton (JLH: or cast a provisional ballot). In this case, the typical
+30 minute line would grow precipitously. One could selectively DoS
+counties or precicnts that are for your opponents candidate.
+
+The (default) username and password for this unit was released on a
+PDF by State of Maryland (username as 1 password as 1111). We
+iteratively created a correct database as follows: we first plugged in
+a blank drive because we didn't have a database. A very helpful
+succession of error messages would appear, for example, "You are
+missing the following sqlite file. We would then create the missing
+file... then it would say "there is the following missing table", and
+we would create the named table. We did this to create each file,
+table, and field in each table (all blank of course as we created them
+from scratch). The schema looke like so (JLH: rinon has the
+schema). There was a consolidation ID which we turned into
+"defcon". This gave us access to the system with no more errors.
+
+We then stopped and began trying use bashbunny -- a USB thing that
+emulates a keyboard. We were sending "A"'s at it to overflow the the
+text field. The thinking is that this is a Windows CE 5 .Net app; and
+we were trying to get it to fill RAM and the RAM manager would close
+that app. (JLH: unclear if that resulted in anything.)
+
+We used wireshark to see what the open ports 80, 443, 5002 were doing;
+5002 was a bit weird and it seems like an error broadcast, doesn't
+accept any connectinons. 443 closes the connection.
 
 firware upgrades. looks for EBOOT.bin NK.bin... bootloder update, NK is kernal. will find these files download into RAM and the flash the bootloader. No signature.
 
