@@ -95,7 +95,7 @@ equipment, including:
 * Diebold Express Poll 5000 electronic pollbook -- version 2.1.1
 * A Simulation of a "Back-Office" Election Environment
 
-Note: A "[DRE voting machine][12]" is an abbreviation for "direct-recording electronic" which
+Note: A "[DRE voting machine][12]" is an abbreviation for "direct-recording electronic" voting machine which
 designates a voting system that records votes directly to some sort of
 digital storage or memory, in constrast to optical scan systems that
 read the voter's marks directly off of ballot paper. Also, an
