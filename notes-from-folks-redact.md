@@ -1,4 +1,8 @@
-# Work on the ExpressPoll 5000
+# Diebold ExpressPoll 5000
+
+(This is not a voting machine but an [e-pollbook][6])
+
+### Sean & TJ
 
 Sean Roach ([@TheEdgyDev][1]), TJ Horner ([@tjhorner][2]), Ian Smith,
 Morgan Jones, Thomas Fulmer
@@ -264,3 +268,4 @@ different information!)
 [3]: https://blog.horner.tj/post/hacking-voting-machines-def-con-25
 [4]: https://greatscottgadgets.com/hackrf/
 [5]: https://twitter.com/OrtegaAlfredo
+[6]: https://en.wikipedia.org/wiki/Electronic_pollbook
