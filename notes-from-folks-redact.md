@@ -215,7 +215,7 @@ At first we were stimied by a password prompt.
 
 (JLH: get more fro Brian)
 
-# Kris
+### Kris
 
 Kris Hardey ([email redacted])
 
@@ -232,7 +232,7 @@ Decompilation: gputils
 
 PEB reader: PIC model 18f2455. Able to pull the firmware off of one of those as well. Have not decompiled, security fuses may be set here.
 
-# TSx
+# Premier AccuVote-TSx
 
 Joe FitzPatrick (@securelyfitz), Schulyer St. Leger (@docprofsky) ([email redacted]), Ryan (github: rqu1, @rqu45), Wasabi ([email redacted]), Ayushman ([email redacted])
 
