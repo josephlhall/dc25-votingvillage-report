@@ -68,7 +68,7 @@ hours the Voting Village was open.
 
 ## Goals
 
-The goals (and non-goals) of the DEF CON Voting Village were:
+The goals of the DEF CON Voting Village were:
 
 * Provide examples of working voting systems for security researchers
   to evaluate, attack, and otherwise study.
