@@ -126,7 +126,7 @@ hours. Part of this is because there were no restrictions or
 prohibitions on, for example, disassembling the machines and there was
 permission to take risks that may result in the machines being
 destroyed in the process. This freedom to take such risks accelerates
-the process and lead to a number of completely new discoveries of new
+the process and can lead to completely new discoveries of new
 vulnerabilities.
 
 Also, this expanded the number of people who have now had first hand
