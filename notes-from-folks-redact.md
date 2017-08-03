@@ -174,7 +174,7 @@ the .NET app (it didn’t work).
 
 ### Nick
 
-Nick ([redacted])
+Nick ([email redacted])
 
 We were wokring on the winvote, getting into it, 2 USB ports on the back. Just had to attached a keyboard, ctrl-al-del, task manager... Alt-f run... takes arbitrary usb drive contents. WiFi chipset. WEP 104/40 not even 128. Physical access to back of the machine for 15s can do anything. Open ports, MS08067 - Net API exploit vulnerability. Wasn't able to pop a shell, but it seemed to work but hung the machine. WEP keys are hard-coded. Modem RJ11 jack, will communicate externally. Looking at the file format ... there was a file system but no files. But open in a hex editor and you could see that the files are still there and not securely erased. 3-pin key over the guts.
 
@@ -194,14 +194,14 @@ defined radio kit.
 
 ### Nick
 
-Nick ([redacted])
+Nick ([email redacted])
 
 Edge internal CF, runninc PSOS, real-time OS (developed in 1989) used in retail equipment. Records a lot of data as a hex files... hard to figure out what the results mean. Results are stored, but then sent to PCMCIA. 24th precinct of DC. Candidates and such. Tried to boot in a VM... menu in the PSOS boot file... can see the strings. Also a RAM file that gives us file not found. One of the PCMCIA slots can update the ballot and the other is for getting results off the machine. Saw some stuff with binwalk that there may be use of an 8-bit cipher. Last update to display (video output devices) was in 1989... at least one file not updated since 1989. 2008 election, Obama, McCain, etc. Serial port on back looks like it could be fun.
 
 ### University of Houston Cybersecurity Club
 
-Tsukinaki ([redacted])
-@Whiskeys373n Joe ([redacted])
+Tsukinaki ([email redacted])
+@Whiskeys373n Joe ([email redacted])
 
 16MB CF card, embedded on the main circuit board. holds a proprietary operating system for the machine, uploads ballot information plain text. drivers for the devices. two pcmcia interfaces onthe outside. one used to load the balot information, also to record the count and then offloaded. No hardware and software encryption.
 
@@ -217,7 +217,7 @@ At first we were stimied by a password prompt.
 
 # Kris
 
-Kris Hardey ([redacted])
+Kris Hardey ([email redacted])
 
 PEB access, PEB readers. microcontroller in the PEB: PIC 16f873. Able to pull firmware from one of them... the other two were garbage (Security fuses may have been blown). Got the firmware off of one and have decompiled it, looks reasonable. Atmil AT58db161b SPI Flash memory chip. Chip for IR TI IR1000. Not yet pulled the flash off of the Atmil chip.
 
@@ -234,7 +234,7 @@ PEB reader: PIC model 18f2455. Able to pull the firmware off of one of those as 
 
 # TSx
 
-Joe FitzPatrick (@securelyfitz), Schulyer St. Leger (@docprofsky) ([redacted]), Ryan (github: rqu1, @rqu45), Wasabi ([redacted]), Ayushman ([redacted])
+Joe FitzPatrick (@securelyfitz), Schulyer St. Leger (@docprofsky) ([email redacted]), Ryan (github: rqu1, @rqu45), Wasabi ([email redacted]), Ayushman ([email redacted])
 
 rqu1: will put dumps of two the ERPOM, one from the battery controller, one from the modem. will post on github. string in the firmware of TSx, company/brand makes PC cards, with 2.4GHz Wifi (WaveLAN).
 
