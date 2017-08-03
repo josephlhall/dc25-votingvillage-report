@@ -211,7 +211,10 @@ Tsukinaki ([email redacted])
 
 Brian Sean
 
-At first we were stimied by a password prompt.
+At first we were stimied by a password prompt. Brian found a way to do
+a manufacturer reset, which reset the passwords to "svcsvc" and
+"clrclr" according to documentation found through a quick google
+search for "iVotronic PEB password".
 
 (JLH: get more fro Brian)
 
