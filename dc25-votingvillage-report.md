@@ -45,26 +45,26 @@ obviously would not exist for criminals or nation-state attackers.  Of
 course, those studies were also done in a "white box" environment --
 researchers had access to source code, documentation, and equipment
 under strict NDA -- while the DEF CON Voting Village is largely a
-"black box" environment where hackers will need to create, copy, or
+"black box" environment where hackers would need to create, copy, or
 cobble together their own tools.  A common rebuttal to the discoveries
-about the vulnerability of those machines in the past has been that
-the studies were allowed weeks or months, a length of time completely
-unrealistic for an attacker to have with that kind of access to the
+about the vulnerability of voting machines in the past has been that
+the studies were allowed weeks or months, a length of time 
+unrealistic for an attacker to have with full access to the
 technology.  In contrast, the DEF CON Voting Village had 25 hours over
-three days; this was a significant but not lengthy amount of time,
-much more realistic to the amount of access an attacker may have in
-jurisdictions where voting equipment may spend days in the hands of a
-poll worker days before Election Day.
+three days (10:00-20:00 ET Fri-Sat (27-28 August 2017) and
+10:00-15:00 ET Sun (29 August 2017)); this was a significant but not lengthy amount of time,
+much more realistic in terms of access an attacker may have in
+some jurisdictions where voting equipment may spend days in the home or garage of a
+poll worker before Election Day.
 
-The DEF CON 25 Voting Machine Hacking Village sought to change these
-things: we would provide an environment (mostly) free from rules where
+The DEF CON 25 Voting Machine Hacking Village sought to change this:
+we provided an environment (mostly) free from rules where
 anyone could lay their technical hands and minds on examples of the
 machinery of our democracy.  This technical report (and accompanying
 technical notes) describe the goals of the Voting Village, the
 equipment that was available in the room, and then findings from the
 actual work hackers and security researchers performed during the 25
-hours the Voting Village was open (10:00-20:00 ET Friday and Saturday,
-10:00-15:00 ET Sunday).
+hours the Voting Village was open.
 
 ## Goals
 
