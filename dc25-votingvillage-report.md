@@ -87,12 +87,12 @@ The goals of the DEF CON Voting Village were:
 Village organizers worked hard to procure a variety of voting
 equipment, including:
 
-* AVS WinVote DRE -- Software Version 1.5.4 [hw version N/A]
-* Premier AccuVote TSx DRE -- TS Unit Model Number AV-TSx; firmware 4.7.8
-* ES&S iVotronic DRE -- Hardware Revision 1.1 (ES&S Code IV 1.24.15.a);
+* AVS WinVote DRE -- software version 1.5.4 [hw version N/A]
+* Premier AccuVote TSx DRE -- TS unit, model number AV-TSx, firmware 4.7.8
+* ES&S iVotronic DRE -- ES&S Code IV 1.24.15.a, hardware revision 1.1
   * PEB version 1.7c-PEB-S
-* Sequoia AVC Edge DRE; version 5.0.24 [unsure if Edge I or II]
-* Diebold Express Poll 5000 electronic pollbook; version 2.1.1
+* Sequoia AVC Edge DRE -- version 5.0.24 [unsure if Edge I or II]
+* Diebold Express Poll 5000 electronic pollbook -- version 2.1.1
 * A Simulation of a "Back-Office" Election Environment
 
 Note: A "[DRE voting machine][12]" is an abbreviation for "direct-recording electronic" which
