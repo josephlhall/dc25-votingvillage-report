@@ -227,11 +227,17 @@ Decompilation: gputils
 
 PEB reader: PIC model 18f2455. Able to pull the firmware off of one of those as well. Have not decompiled, security fuses may be set here.
 
-# AVS WinVote & ExpressPoll
+# AVS WinVote
 
 Alfredo Ortega (@OrtegaAlfredo)
 
-RF survery, winvote printer. Emitting a bunch of RF. Were not able to correlate with specific action. Some very low signal. HackRF -- software defined radio.
+Alfredo and a few others performed an RF survery of the WinVote
+printer, in order to determine if a TEMPEST attack would be possible
+from a reasonable distance. The unit was emitting a bunch of RF. We
+were not able to correlate with specific actions of the device. Some
+very low signal in our measurments, but would need much, much more
+data to determine anything. We used [HackRF One][4], a software
+defined radio kit.
 
 # Models of equipment in the Village
 
@@ -252,3 +258,4 @@ different information!)
 [1]: https://twitter.com/TheEdgyDev/
 [2]: https://twitter.com/tjhorner/
 [3]: https://blog.horner.tj/post/hacking-voting-machines-def-con-25
+[4]: https://greatscottgadgets.com/hackrf/
