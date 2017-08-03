@@ -50,7 +50,7 @@ We scanned and then used wireshark to investigate its networking. Open
 ports included port 80, 443, and 5002.
 5002 was a bit weird and it seems like an error broadcast, doesn't
 accept any connections. 443 closes the connection immediately. 80
-allows connecting to something but shuts down quickly if we try to
+is the default Windows CE server ("Welcome to Windows CE!...") or something; itallows connecting shuts down quickly if we try to
 send too much data.
 
 We then explored the possibility of doing unauthorized firmware upgrades. The
