@@ -233,9 +233,30 @@ defined radio kit.
 
 ### Nick
 
-Nick ([email redacted])
+Nick ([email redacted]) also messed around with the AVC Edge.
 
-Edge internal CF, runninc PSOS, real-time OS (developed in 1989) used in retail equipment. Records a lot of data as a hex files... hard to figure out what the results mean. Results are stored, but then sent to PCMCIA. 24th precinct of DC. Candidates and such. Tried to boot in a VM... menu in the PSOS boot file... can see the strings. Also a RAM file that gives us file not found. One of the PCMCIA slots can update the ballot and the other is for getting results off the machine. Saw some stuff with binwalk that there may be use of an 8-bit cipher. Last update to display (video output devices) was in 1989... at least one file not updated since 1989. 2008 election, Obama, McCain, etc. Serial port on back looks like it could be fun.
+The AVC Edge has an internal CompactFlash (CF) card. In terms of OS,
+it's running [pSOS][9], a real-time OS developed in 1989 (unclear when
+this version of the operating system was from). This OS was used
+heavily in retail equipment. Records a lot of data as a hex files;
+hard to easily figure out what the results mean without a bit more
+information or reverse-engineering of the file format.  Results are
+stored, but then also sent to flash storage on a PCMCIA card in a slot
+in the back of the machine.  This particular AVC Edge was from the
+24th precinct of Washington DC, which Nick got by just running
+`strings` on the data; there may be more with more careful
+examination.  Nick definitely could see the candidates and such, no
+voter identities or similar.  He tried to boot the OS image in a VM,
+but didn't get too far; He could see a menu in the PSOS boot file,
+that is, could see the strings, but couldn't get it to boot.  There
+was a RAM file that seemed to give them a "file not found" in the boot
+sequence.  One of the PCMCIA slots can update the ballot and the other
+is for getting results off the machine.  Saw some stuff with `binwalk`
+that incidcated that there may be use of an *8-bit cipher* (yes eight
+(8) bit).  Last update to display firmware (video output devices) was
+in 1989; that is, at least one file there had not been updated since
+1989. The data was from the 2008 election -- Obama, McCain, etc. Nick
+also saw a serial port on back that looked like it could be fun.
 
 ### University of Houston Cybersecurity Club
 
@@ -313,3 +334,4 @@ different information!)
 [6]: https://en.wikipedia.org/wiki/Electronic_pollbook
 [7]: http://timeclocksusa.com/134-Time-Clock
 [8]: https://technet.microsoft.com/en-us/library/security/ms08-067.aspx
+[9]: https://en.wikipedia.org/wiki/PSOS_(real-time_operating_system)
