@@ -344,18 +344,70 @@ fuses may be set here, in which case it will be garbage.
 
 # Premier AccuVote-TSx
 
-Joe FitzPatrick (@securelyfitz), Schulyer St. Leger (@docprofsky) ([email redacted]), Ryan (github: rqu1, @rqu45), Wasabi ([email redacted]), Ayushman ([email redacted])
+Joe FitzPatrick ([@securelyfitz][17]), Schulyer St. Leger
+([@docprofsky][18]) ([email redacted]), Ryan (github: [rqu1][19],
+[@rqu45][20]), Wasabi ([email redacted]), Ayushman ([email redacted])
 
-rqu1: will put dumps of two the ERPOM, one from the battery controller, one from the modem. will post on github. string in the firmware of TSx, company/brand makes PC cards, with 2.4GHz Wifi (WaveLAN).
+wasabi: one EPROM goes to the battery controller, and it's clear that
+when this PIC is removed, nothing works anymore.  That is an easy DoS
+vector.
 
-wasabi: EPROM goes to battery controller, PIC that when it's removed, nothing works anymore.
+Ayushman was exploring how careful this device is with memory care.
+There is an `.ini` file that has the passwords, users, modem
+configuration for the device.  20k chars in the key/value pairs, it
+would probably be easy to pop into some sort of terminal here and read
+and/or change elements in that file.  You would need a serial (`db9`)
+port in order to interact with the terminal.
 
-ayushman: memory care, .ini file has the passwords, users modem configuration. 20,0000k chars in the key/value pairs, pop into some sort of terminal. Serial (db9) port needed in order to interact with the terminal.
+Joe and Schuyler focused on getting the firmware off the TSx via the
+JTAG interface, which allows access to the chip and system. To do
+this, Joe and crew first found out that this is an ARMv5 chip design,
+and common chip programmer/debuggers only work with ARMv6 and later.
+After getting the right debugger that could do ARMv5, they used
+`openocd` v10 ([Open On-Chip Debugger][21]). The command line uses
+default files and we ran the following commands:
 
-getting the firmware off right now. openocd v10. command line uses default files. "openocd -f interface/um232h.cfg -f target/pxa255.cfg". one for the tool, one for the chip. Using a um, it told me the ID code of the device (0x69264013). Intel chip. cfg file. Hardware config, ft232h (chip) adafruit breakout board. Standard ARM 5, 20-pin. Debug header pin 3, connects to ft232h c0, treset. Debug header pin 4, connects to debugger pin ground, and is ground (could be any ground). debug header pin 5, tdi connects to pin d1 of the debug header. debug connector pin 5, tdi, connects to d1 of the debug adapter. debug header pin 7, tms, connects to d3 on debug adapter. debug header 9, tclk, goes to pin d0. debug header pin 13, tdo, connects to d2. debug header pin 15, sreset, connects to c1.
+    openocd -f interface/um232h.cfg -f target/pxa255.cfg
 
-that is a server, in a new console, open a terminal, `telnet localhost 444` opens up console type directly `reset halt`. Now the system is rebooted in debugging rig... can use step to step through instructions one by one. Can also start up gdb in another window. To get `gdb -multiarch`. After gdb is running: `set arch armv5te`. `target remote localhost:333` (gdb port). Some quirks... but mostly like running gdb. `dump_image reset.bin 0x0 0x1000000` (~16MB). From that used binwalk v2.1.1 (firmware analysis tool). `binwalk -E reset.bin` entropy indicated the firmware is about 11MB, compressed 3MB file towards the beginning. `binwalk -e reset.bin` identifies files and extracts. Most important file: NK.bin (.Net kernel). Copyright information, and a lot of certificates.
-. Copyright information, and a lot of certificates.
+(one for the tool, one for the chip).  Using the UM, it told me the ID
+code of the device (`0x69264013`) which is a [PX255 Intel chip][22],
+that's the `.cfg` file. In terms of hardware configuration, they used
+an [Adafruit FT232H breakout board][23].  This was a standard ARMv5,
+20-pin.  Here's the pinout (debug header pin, chip function):
+
+* pin 3, connects to ft232h `c0`, `treset`
+* pin 4, connects to debugger pin `ground`, and is ground (could be
+  any ground)
+* pin 5, `tdi`, connects to d1 on debug adapter
+* pin 7, `tms`, connects to d3 on debug adapter
+* pin 9, `tclk`, goes to d0 on debug adapter
+* pin 13, `tdo`, connects to d2 on debug adapter
+* pin 15, `sreset`, connects to c1 on debug adapter
+
+rqu1: will put dumps of two the EPROMs: one from the battery
+controller, one from the modem.  The modem is interesting as that's a
+form of networking: ran strings on the firmware of TSx, found the
+company/brand, WaveLAN, that makes PC WiFi cards, with 2.4GHz Wifi.
+
+It's now hooked up and running a server; they opened a new console,
+opened a terminal, and did `telnet localhost 444` which opens up
+console on the machine.  Then they typed directly `reset halt` to
+reboot.  Now the system is rebooted in the debugging rig; they could
+then step through instructions one by one. They could also start up
+`gdb` in another window.  To do this run `gdb -multiarch`. After gdb
+is running you can type: `set arch armv5te` to set the target
+architecture. Then point it to the gdb port with `target remote
+localhost:333`.  There were some small quirks; but the result was
+mostly like running gdb on a regular program.  To dump the firmware,
+they did `dump_image reset.bin 0x0 0x1000000` which resulted in a
+nearly ~16MB image. Then they used [binwalk][24] v2.1.1 (firmware
+analysis tool). By typing `binwalk -E reset.bin` we can measure the
+entropy, and that indicated the firmware is about 11MB, with a
+compressed 3MB file towards the beginning, which could be
+interesting. The command `binwalk -e reset.bin` identifies files and
+extracts them. The most important file was clearly `NK.bin` (.Net
+kernel). By running strings we saw mostly copyright information
+embedded in the software, and a lot of certificate information.
 
 # Models of equipment in the Village
 
@@ -389,3 +441,11 @@ different information!)
 [14]: http://www.microchip.com/mplab/mplab-x-ide
 [15]: https://gputils.sourceforge.io/
 [16]: http://www.microchip.com/wwwproducts/en/PIC18F2455
+[17]: https://twitter.com/securelyfitz
+[18]: https://twitter.com/docprofsky
+[19]: https://github.com/rqu1/
+[20]: https://twitter.com/rqu45
+[21]: http://openocd.org/
+[22]: http://www.datasheet4u.com/pdf/PXA255-pdf/359785
+[23]: https://learn.adafruit.com/adafruit-ft232h-breakout/overview
+[24]: https://github.com/devttys0/binwalk
