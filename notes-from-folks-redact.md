@@ -229,7 +229,7 @@ PEB reader: PIC model 18f2455. Able to pull the firmware off of one of those as 
 
 # AVS WinVote
 
-Alfredo Ortega (@OrtegaAlfredo)
+Alfredo Ortega ([@OrtegaAlfredo][5])
 
 Alfredo and a few others performed an RF survery of the WinVote
 printer, in order to determine if a TEMPEST attack would be possible
@@ -259,3 +259,4 @@ different information!)
 [2]: https://twitter.com/tjhorner/
 [3]: https://blog.horner.tj/post/hacking-voting-machines-def-con-25
 [4]: https://greatscottgadgets.com/hackrf/
+[5]: https://twitter.com/OrtegaAlfredo
