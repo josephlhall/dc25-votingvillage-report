@@ -1,9 +1,9 @@
 # Work on the ExpressPoll 5000
 
-Sean Roach (@TheEdgeyDev) & TJ Horner (@tjhorner) & Ian Smith
+Sean Roach ([@TheEdgyDev][1]) & TJ Horner ([@tjhorner][2]) & Ian Smith
 
 Found a few physical things and a few software things. Main physical
-thing: there was an sqlite 3 databae on compactflash (CF) which is
+thing: there was an sqlite 3 database on compactflash (CF) which is
 written/stored/etc. in the clear (unencrypted). The only thing
 stopping someone from taking this CF card out is one screw, a philips
 head screw -- not even a type of security screw. This would have
@@ -26,7 +26,7 @@ PDF by State of Maryland (username as 1 password as 1111). We
 iteratively created a correct database as follows: we first plugged in
 a blank drive because we didn't have a database. A very helpful
 succession of error messages would appear, for example, "You are
-missing the following sqlite file. We would then create the missing
+missing the following sqlite file." We would then create the missing
 file... then it would say "there is the following missing table", and
 we would create the named table. We did this to create each file,
 table, and field in each table (all blank of course as we created them
@@ -34,19 +34,21 @@ from scratch). The schema looke like so (JLH: rinon has the
 schema). There was a consolidation ID which we turned into
 `defcon`. This gave us access to the system with no more errors.
 
-We then stopped and began trying use bashbunny -- a USB thing that
-emulates a keyboard. We were sending "A"'s at it to overflow the the
-text field. The thinking is that this is a Windows CE 5 .Net app; and
-we were trying to get it to fill RAM and the RAM manager would close
-that app. (JLH: unclear if that resulted in anything.)
+We then attempted to see if bad data in the database could cause problems
+and began trying use a bashbunny -- a USB thing that
+emulates a keyboard. We were sending `A` characters at it to overflow the the
+text field. The thinking is that this is a Windows CE 5, .Net app; and
+we were trying to get it to fill RAM and the RAM manager would then close
+that app, crashing the application. (JLH: unclear if that resulted in anything.)
 
-We used wireshark to see what the open ports 80, 443, 5002 were doing;
+We scanned and then used wireshark to investigate its networking. Open
+ports included port 80, 443, and 5002.
 5002 was a bit weird and it seems like an error broadcast, doesn't
 accept any connectinons. 443 closes the connection immediately. 80
 allows connecting to something but shuts down quickly if we try to
 send too much data.
 
-We then explored the possibility of doing firmware upgrades. The
+We then explored the possibility of doing unauthorized firmware upgrades. The
 device looks for `EBOOT.bin` (bootloader) and `NK.bin` (kernel). If
 `Eboot.bin` is present, the device will perform a bootloder update
 with that file; if `NK.bin` is present, it will load that into RAM an
@@ -146,3 +148,6 @@ different information!)
   II]**
 * AVS WinVote version 1.5.4 **[Note: did not capture HW version]**
 * Diebold Express Poll 5000; version 2.1.1
+
+[1]: https://twitter.com/TheEdgyDev/
+[2]: https://twitter.com/tjhorner/
