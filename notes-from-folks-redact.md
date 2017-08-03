@@ -260,10 +260,17 @@ also saw a serial port on back that looked like it could be fun.
 
 ### University of Houston Cybersecurity Club
 
-Tsukinaki ([email redacted])
-@Whiskeys373n Joe ([email redacted])
+Tsukinaki ([email redacted], [@Whiskeys373n][10]) and Joe ([email
+redacted])
 
-16MB CF card, embedded on the main circuit board. holds a proprietary operating system for the machine, uploads ballot information plain text. drivers for the devices. two pcmcia interfaces onthe outside. one used to load the balot information, also to record the count and then offloaded. No hardware and software encryption.
+They found a 16MB CompacFlash card, embedded on the main circuit
+board. It held what appeared to be a proprietary operating system for
+the machine, all the uploads of ballot information were in plain
+text. We looked at the drivers for the devices. And then examined the
+two PCMCIA interfaces on the outside, on the back of the machine. One
+slot is used to load the balot information, and the other records the
+count and then offloaded after the election. No hardware or software
+encryption.
 
 # ES&S iVotronic
 
@@ -272,8 +279,8 @@ Tsukinaki ([email redacted])
 Brian Sean
 
 At first we were stimied by a password prompt. Brian found a way to do
-a manufacturer reset, which reset the passwords to "svcsvc" and
-"clrclr" according to documentation found through a quick google
+a manufacturer reset, which reset the passwords to `svcsvc` and
+`clrclr` according to documentation found through a quick google
 search for "iVotronic PEB password".
 
 (JLH: get more fro Brian)
@@ -282,18 +289,58 @@ search for "iVotronic PEB password".
 
 Kris Hardey ([email redacted])
 
-PEB access, PEB readers. microcontroller in the PEB: PIC 16f873. Able to pull firmware from one of them... the other two were garbage (Security fuses may have been blown). Got the firmware off of one and have decompiled it, looks reasonable. Atmil AT58db161b SPI Flash memory chip. Chip for IR TI IR1000. Not yet pulled the flash off of the Atmil chip.
+Kris and his team focused on attacking access to the PEB and PEB
+readers (the ES&S iVotronic uses a small device called a personal
+electronic ballot (PEB) to both activate the machine for each voter,
+as well as transmit the ballot style to the unit so that it displays
+only the races that the voter is entitled to vote on).
 
-Pin out: PICKit 3, debugger/programmer.
+They first hooked up a hardware debugger ([PICkit 3][11],
+debugger/programmer) to various chips on the PEB or PEB reader
+cirtcuit boards.
 
-PEB: programmer header, pin 1, pgd; pin 2, mclr/vpp; pin 3, not sure; pin 4, pgc; pin 5, pgm; pin 6, vss; pin 7 bdd.
+The microcontroller in the PEB is a `PIC16F873`.  They were able to
+pull firmware from one of the chips.  The other two were garbage; the
+security fuses on the chips may have been blown to prevent reading out
+the software.  They got the firmware off of one of the chips and have
+decompiled it.  It looks reasonable, but they did not have time to do
+much more before the village closed shop on Sunday.
 
-PEB reader: pin 1 & 2, unsure (didn't use); pin 3, pgc; pin 4, pgd, pin 5 vss, pin 6 vdd pin 7 mclr/vpp. pin 1 used j3 screen on the PEB reader PCB. pgm pin is not connected to the header, connected with a jumper.
+There is a flash memory chip on the board, an Atmel AT58DB161B SPI
+Flash memory chip (JLH: Not sure the AT58 exists; maybe this should be
+[AT45DB161B][12]). Chip for the IRdA port (IR input/output) is the [TI
+TIR1000][13].  They had not yet pulled the data off of the flash
+memory off of the Atmel chip.
 
-Toolchain for reading (IDE toolchain): Microchip MPLabX
-Decompilation: gputils
+Here is the pin out (using the PICkit 3):
 
-PEB reader: PIC model 18f2455. Able to pull the firmware off of one of those as well. Have not decompiled, security fuses may be set here.
+For the PEB (chip pin, chip function):
+
+* pin 1, `pgd`
+* pin 2, `mclr/vpp`
+* pin 3, not sure
+* pin 4, `pgc`
+* pin 5, `pgm`
+* pin 6, `vss`
+* pin 7, `bdd`
+
+For the PEB reader:
+
+* pin 1 & 2, unsure (didn't use)
+* pin 3, `pgc`
+* pin 4, `pgd`
+* pin 5, `vss`
+* pin 6, `vdd`
+* pin 7, `mclr/vpp`
+* pin 1, `pgm` (unlabeled; used `j3` screen on the PEB reader PCB. Pin
+  is not connected to the header, instead connected with a jumper).
+
+Toolchain for reading (that is, IDE toolchain) was [Microchip
+MPLAB-X][14] and for decompilation they used [gputils][15].
+
+PEB reader: PIC model: [PIC18F2455][16].  They were Able to pull the
+firmware off of one of those as well.  Have not decompiled, security
+fuses may be set here, in which case it will be garbage.
 
 # Premier AccuVote-TSx
 
@@ -335,3 +382,10 @@ different information!)
 [7]: http://timeclocksusa.com/134-Time-Clock
 [8]: https://technet.microsoft.com/en-us/library/security/ms08-067.aspx
 [9]: https://en.wikipedia.org/wiki/PSOS_(real-time_operating_system)
+[10]: https://mobile.twitter.com/Whiskeys373n
+[11]: http://www.microchip.com/Developmenttools/ProductDetails.aspx?PartNO=PG164130
+[12]: http://www.atmel.com/Images/doc2224.pdf
+[13]: http://www.alldatasheet.com/view.jsp?Searchword=IR1000
+[14]: http://www.microchip.com/mplab/mplab-x-ide
+[15]: https://gputils.sourceforge.io/
+[16]: http://www.microchip.com/wwwproducts/en/PIC18F2455
