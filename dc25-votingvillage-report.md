@@ -1,6 +1,6 @@
 # Report from the DC25 Voting Machine Hacking Village
 
-Author(s): [Joseph Lorenzo Hall][1]
+Author(s): [Joseph Lorenzo Hall][1], [rinon][2]
 
 ## Introduction
 
@@ -10,16 +10,18 @@ Author(s): [Joseph Lorenzo Hall][1]
 
 ### AVS WinVote
 
-### Diebold AccuVote-TSx
+### Premier AccuVote-TSx
 
 ### ES&S iVotronic
 
 ### Sequoia AVC Edge
 
-### ExressPoll 5000
+### Diebold ExpressPoll 5000
 
 ## Findings
 
 ## Next Year
 
 [1]: https://josephhall.org/
+[2]: https://github.com/rinon
+
