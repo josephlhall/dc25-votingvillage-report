@@ -1,6 +1,6 @@
 # Report from the DC25 Voting Machine Hacking Village
 
-Author(s): [Joseph Lorenzo Hall][1], [Harri Hursity][4], [rinon][2]
+Author(s): [Joseph Lorenzo Hall][1], [Harri Hursti][4], [rinon][2]
 
 ***THIS IS A DRAFT AND UNOFFICIAL UNTIL WE AGREE ON A RELEASE
    CANDIDATE***
@@ -108,7 +108,7 @@ The goals (and non-goals) of the DEF CON Voting Village were:
 
 ## Findings
 
-DefCon showed that technical minds with no previous knowledge about
+DEF CON showed that technical minds with no previous knowledge about
 voting machines, without even being provided proper tools, can still
 learn how to hack the machines within tens of minutes or a few
 hours. Part of this is because there were no restrictions or
