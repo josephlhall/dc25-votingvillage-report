@@ -87,13 +87,21 @@ The goals of the DEF CON Voting Village were:
 Village organizers worked hard to procure a variety of voting
 equipment, including:
 
-* AVS WinVote Software Version 1.5.4 [hw version N/A]
-* Premier AccuVote TSx -- TS Unit Model Number AV-TSx; firmware 4.7.8
-* ES&S iVotronic -- Hardware Revision 1.1 (ES&S Code IV 1.24.15.a);
+* AVS WinVote DRE -- Software Version 1.5.4 [hw version N/A]
+* Premier AccuVote TSx DRE -- TS Unit Model Number AV-TSx; firmware 4.7.8
+* ES&S iVotronic DRE -- Hardware Revision 1.1 (ES&S Code IV 1.24.15.a);
   * PEB version 1.7c-PEB-S
-* Sequoia AVC Edge; version 5.0.24 [unsure if Edge I or II]
-* Diebold Express Poll 5000; version 2.1.1
+* Sequoia AVC Edge DRE; version 5.0.24 [unsure if Edge I or II]
+* Diebold Express Poll 5000 electronic pollbook; version 2.1.1
 * A Simulation of a "Back-Office" Election Environment
+
+Note: A "[DRE voting machine][12]" is an abbreviation for "direct-recording electronic" which
+designates a voting system that records votes directly to some sort of
+digital storage or memory, in constrast to optical scan systems that
+read the voter's marks directly off of ballot paper. Also, an
+[electronic pollbook][13] is a system that essentially replaces the spiral-bound
+lists of registered voters in every polling place by putting that
+functionality into a laptop, tablet, or kiosk-like computing platform.
 
 ## Brief Descriptions of Interesting Accomplishments
 
@@ -179,3 +187,5 @@ Please get in touch with us if you have other ideas!
 [9]: https://nordicinnovationlabs.com/team/harri-hursti/
 [10]: https://nordicinnovationlabs.com/team/margaret-macalpine/
 [11]: https://github.com/josephlhall/dc25-votingvillage-report/blob/master/notes-from-folks-redact.md
+[12]: https://en.wikipedia.org/wiki/DRE_voting_machine
+[13]: https://en.wikipedia.org/wiki/Electronic_pollbook
