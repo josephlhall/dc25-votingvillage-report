@@ -2,8 +2,8 @@
 
 Author(s): [Joseph Lorenzo Hall][1], [Harri Hursti][4], [rinon][2]
 
-***THIS IS A DRAFT AND UNOFFICIAL UNTIL WE AGREE ON A RELEASE
-   CANDIDATE***
+***--DRAFT--THIS IS A DRAFT AND UNOFFICIAL UNTIL WE AGREE ON A RELEASE
+   CANDIDATE--DRAFT--***
 
 ## Introduction
 
