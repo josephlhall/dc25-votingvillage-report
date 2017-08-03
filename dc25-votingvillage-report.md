@@ -30,8 +30,8 @@ creation of a Voting Machine Hacking Village. In his words:
 > network that we can test.  Believe it or not no such network has
 > ever been security tested or audited - only separate pieces.
 
-The Village was organized by Jake Braun (Cambridge Global), Matt Blaze
-(U Penn), Harri Hursti (Nordic Innovation Labs), and Maggie MacAlpine
+The Village was organized by [Jake Braun][7] (Cambridge Global), [Matt Blaze][8]
+(U Penn), [Harri Hursti][9] (Nordic Innovation Labs), and [Maggie MacAlpine][10]
 (Nordic Innovation Labs).
 
 It was already a well established fact that voting machines were (and
@@ -171,3 +171,7 @@ Please get in touch with us if you have other ideas!
 [4]: https://nordicinnovationlabs.com/
 [5]: http://www.sos.ca.gov/elections/voting-systems/oversight/top-bottom-review/
 [6]: https://www.eac.gov/assets/1/28/EVEREST.pdf
+[7]: https://www.cambridgeglobal.com/new-page
+[8]: http://www.crypto.com/
+[9]: https://nordicinnovationlabs.com/team/harri-hursti/
+[10]: https://nordicinnovationlabs.com/team/margaret-macalpine/
