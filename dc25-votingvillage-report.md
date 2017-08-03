@@ -61,7 +61,7 @@ The DEF CON 25 Voting Machine Hacking Village sought to change this:
 we provided an environment (mostly) free from rules where
 anyone could lay their technical hands and minds on examples of the
 machinery of our democracy.  This technical report (and accompanying
-technical notes) describe the goals of the Voting Village, the
+[technical notes][11]) describe the goals of the Voting Village, the
 equipment that was available in the room, and then findings from the
 actual work hackers and security researchers performed during the 25
 hours the Voting Village was open.
@@ -175,3 +175,4 @@ Please get in touch with us if you have other ideas!
 [8]: http://www.crypto.com/
 [9]: https://nordicinnovationlabs.com/team/harri-hursti/
 [10]: https://nordicinnovationlabs.com/team/margaret-macalpine/
+[11]: https://github.com/josephlhall/dc25-votingvillage-report/blob/master/notes-from-folks-redact.md
