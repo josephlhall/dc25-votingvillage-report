@@ -73,10 +73,10 @@ The goals of the DEF CON Voting Village were:
 * Provide examples of working voting systems for security researchers
   to evaluate, attack, and otherwise study.
 * Educate the DEF CON community and raise awareness about the
-  machinery of the US democracy, from the machines to legal, market,
+  machinery of US democracy, from the machines to how election technology interacts with legal, market,
   and normative barriers in elections that do not exist in general
   purpose computing contexts.
-* Facilitate collaboration between security researchers to assess
+* Facilitate collaboration between security researchers with different skill sets to opportunistically assess
   software, hardware, and network security postures of these systems.
 * Start a discussion in the DEF CON community about how security
   researchers and hackers can help to make our election infrastructure
