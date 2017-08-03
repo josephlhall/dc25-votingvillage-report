@@ -359,6 +359,11 @@ would probably be easy to pop into some sort of terminal here and read
 and/or change elements in that file.  You would need a serial (`db9`)
 port in order to interact with the terminal.
 
+rqu1: has put [dumps up of two the EPROMs][25]: one from the battery
+controller, one from the modem.  The modem is interesting as that's a
+form of networking: ran strings on the firmware of TSx, found the
+company/brand, WaveLAN, that makes PC WiFi cards, with 2.4GHz Wifi.
+
 Joe and Schuyler focused on getting the firmware off the TSx via the
 JTAG interface, which allows access to the chip and system. To do
 this, Joe and crew first found out that this is an ARMv5 chip design,
@@ -383,11 +388,6 @@ an [Adafruit FT232H breakout board][23].  This was a standard ARMv5,
 * pin 9, `tclk`, goes to d0 on debug adapter
 * pin 13, `tdo`, connects to d2 on debug adapter
 * pin 15, `sreset`, connects to c1 on debug adapter
-
-rqu1: will put dumps of two the EPROMs: one from the battery
-controller, one from the modem.  The modem is interesting as that's a
-form of networking: ran strings on the firmware of TSx, found the
-company/brand, WaveLAN, that makes PC WiFi cards, with 2.4GHz Wifi.
 
 It's now hooked up and running a server; they opened a new console,
 opened a terminal, and did `telnet localhost 444` which opens up
@@ -454,3 +454,4 @@ different information!)
 [22]: http://www.datasheet4u.com/pdf/PXA255-pdf/359785
 [23]: https://learn.adafruit.com/adafruit-ft232h-breakout/overview
 [24]: https://github.com/devttys0/binwalk
+[25]: https://github.com/rqu1/HackTheElection
