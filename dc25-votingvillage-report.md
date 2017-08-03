@@ -1,12 +1,98 @@
 # Report from the DC25 Voting Machine Hacking Village
 
-Author(s): [Joseph Lorenzo Hall][1], [rinon][2]
+Author(s): [Joseph Lorenzo Hall][1], [Harri Hursity][4], [rinon][2]
+
+***THIS IS A DRAFT AND UNOFFICIAL UNTIL WE AGREE ON A RELEASE
+   CANDIDATE***
 
 ## Introduction
 
+As a new "village" for DEF CON 25, Dark Tangent [announced][3] the
+creation of a Voting Machine Hacking Village. In his words:
+
+> CONCEPT: Get a bunch of voting machines and start hacking on them to
+> raise awareness and find out for ourselves what the deal is.  I'm
+> tired of reading misinformation about voting system security so it
+> is time for a DEF CON Village.
+>
+> Until now getting access to real voting machines has been almost
+> impossible.  The public has been assured by the vendors that the
+> systems are safe, but who can verify that?  The DEF CON Voting
+> Machine Hacking Village provides you access to real voting machines,
+> used in past elections and to be used in future elections.  Now we,
+> as community, can take a look ourselves and asses the security of
+> these systems and help general public to get educated and the policy
+> makers to get old-fashioned facts.
+>
+> As a first year Village we will get everyone started on
+> understanding the technology and systems these machines live in.  By
+> year three we hope to have a complete functioning stand alone voting
+> network that we can test.  Believe it or not no such network has
+> ever been security tested or audited - only separate pieces.
+
+The Village was organized by Jake Braun (Cambridge Global), Matt Blaze
+(U Penn), Harri Hursti (Nordic Innovation Labs), and Maggie MacAlpine
+(Nordic Innovation Labs).
+
+It was already a well established fact that voting machines were (and
+are) hackable, but only a very limited number of people, mostly in
+academic or industrial contexts, have been allowed to inspect the
+machines before.  Past official studies -- such as the California
+[Top-To-Bottom Review][] and the Ohio [EVEREST Review][6], ten years
+ago this summer -- had significant restrictions on what the
+participating researchers were allowed to try -- restrictions which
+obviously would not exist for criminals or nation-state attackers.  Of
+course, those studies were also done in a "white box" environment --
+researchers had access to source code, documentation, and equipment
+under strict NDA -- while the DEF CON Voting Village is largely a
+"black box" environment where hackers will need to create, copy, or
+cobble together their own tools.  A common rebuttal to the discoveries
+about the vulnerability of those machines in the past has been that
+the studies were allowed weeks or months, a length of time completely
+unrealistic for an attacker to have with that kind of access to the
+technology.  In contrast, the DEF CON Voting Village had 25 hours over
+three days; this was a significant but not lengthy amount of time,
+much more realistic to the amount of access an attacker may have in
+jurisdictions where voting equipment may spend days in the hands of a
+poll worker days before Election Day.
+
+The DEF CON 25 Voting Machine Hacking Village sought to change these
+things: we would provide an environment (mostly) free from rules where
+anyone could lay their technical hands and minds on examples of the
+machinery of our democracy.  This technical report (and accompanying
+technical notes) describe the goals of the Voting Village, the
+equipment that was available in the room, and then findings from the
+actual work hackers and security researchers performed during the 25
+hours the Voting Village was open (10:00-20:00 ET Friday and Saturday,
+10:00-15:00 ET Sunday).
+
 ## Goals
 
+The goals (and non-goals) of the DEF CON Voting Village were:
+
+* Provide examples of working voting systems for security researchers
+  to evaluate, attack, and otherwise study.
+* Educate the DEF CON community and raise awareness about the
+  machinery of the US democracy, from the machines to legal, market,
+  and normative barriers in elections that do not exist in general
+  purpose computing contexts.
+* Facilitate collaboration between security researchers to assess
+  software, hardware, and network security postures of these systems.
+* Start a discussion in the DEF CON community about how security
+  researchers and hackers can help to make our election infrastructure
+  more safe and secure.
+
 ## Equipment in the Village
+
+* AVS WinVote Software Version 1.5.4 [hw version N/A]
+* Premier AccuVote TSx -- TS Unit Model Number AV-TSx; firmware 4.7.8
+* ES&S iVotronic -- Hardware Revision 1.1 (ES&S Code IV 1.24.15.a);
+  * PEB version 1.7c-PEB-S
+* Sequoia AVC Edge; version 5.0.24 [unsure if Edge I or II]
+* Diebold Express Poll 5000; version 2.1.1
+* A Simulation of a "Back-Office" Election Environment
+
+## Brief Descriptions of Interesting Accomplishments
 
 ### AVS WinVote
 
@@ -22,8 +108,66 @@ Author(s): [Joseph Lorenzo Hall][1], [rinon][2]
 
 ## Findings
 
+DefCon showed that technical minds with no previous knowledge about
+voting machines, without even being provided proper tools, can still
+learn how to hack the machines within tens of minutes or a few
+hours. Part of this is because there were no restrictions or
+prohibitions on, for example, disassembling the machines and there was
+permission to take risks that may result in the machines being
+destroyed in the process. This freedom to take such risks accelerates
+the process and lead to a number of completely new discoveries of new
+vulnerabilities.
+
+Also, this expanded the number of people who have now had first hand
+experience and knowledge of these systems. By Sunday, the people who
+started hacking on Friday were the experts and they were teaching and
+helping the new people who just started on Sunday.
+
+In the village we had a number of technology savvy election officials,
+who came to hack the very machines they use in their jurisdictions to
+run elections. This was their first opportunity to take a look
+themselves into the machines--machines they were forced to use and
+manage, but were prohibited to study--and find answers to their own
+questions and learn the truth about that equipment.
+
 ## Next Year
+
+We hope to expand the Voting Village next year to potentially cover a
+number of distinct areas in addition to hands-on hacking of voting
+equipment, including:
+
+* **Closed-Loop System:** We would like to have a closed-loop system
+  on which we can run an entire mock election using actual voting
+  technologies. This would include voter registration, ballot
+  generation, a mock polling place (with rules of engagement), and
+  results reporting.
+* **Election Tech Range:** Election officials and voting system
+  manufacturers have some of their own security technologies,
+  compositions, or solutions that they find work well in defending
+  against certain threats.  We would like to invite election officials
+  and voting system vendors to come and get advice and even testing of
+  their tech. A good example would be if an election official or
+  manufacturer would like to get feedback on a particular security
+  system and/or challenge security researchers to evaluate it and give
+  feedback on how it could be improved.
+* **Election Tech Challenges:** There are a number of activities in
+  elections that are difficult to secure -- yes, some small fraction
+  of votes are cast by email, fax, and web and a larger fraction cast
+  on paper through vote-by-mail.  We'd like to set up examples of
+  these technologies and challenge Voting Village attendees to
+  demonstrate what failures can happen and to what extent those can be
+  avoided.
+* **Election Technology Usable Security Evaluations:** A secure voting
+  system can still be highly usable. We'd like to invite usable
+  security researchers to join the village to build up a resource of
+  usability and needs assessment conclusions and profiles of past,
+  existing, and future voting technologies.
+
+Please get in touch with us if you have other ideas!
 
 [1]: https://josephhall.org/
 [2]: https://github.com/rinon
-
+[3]: https://forum.defcon.org/forum/defcon/dc25-official-unofficial-parties-social-gatherings-events-contests/dc25-villages/voting-machine-hacking-village/226138-new-for-def-con-25-voting-machine-hacking-village
+[4]: https://nordicinnovationlabs.com/
+[5]: http://www.sos.ca.gov/elections/voting-systems/oversight/top-bottom-review/
+[6]: https://www.eac.gov/assets/1/28/EVEREST.pdf
