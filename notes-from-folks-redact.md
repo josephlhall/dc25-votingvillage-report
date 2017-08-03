@@ -409,6 +409,11 @@ extracts them. The most important file was clearly `NK.bin` (.Net
 kernel). By running strings we saw mostly copyright information
 embedded in the software, and a lot of certificate information.
 
+# Back-Office Simulated Network
+
+(JLH: Need to get in touch with Bash Kazi, who did this work.)
+
+
 # Models of equipment in the Village
 
 Courtesy of Ryan Macias, who kept good notes on make, model, and
