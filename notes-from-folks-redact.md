@@ -1,6 +1,7 @@
 # Work on the ExpressPoll 5000
 
-Sean Roach ([@TheEdgyDev][1]) & TJ Horner ([@tjhorner][2]) & Ian Smith
+Sean Roach ([@TheEdgyDev][1]), TJ Horner ([@tjhorner][2]), Ian Smith,
+Morgan Jones, Thomas Fulmer
 
 Found a few physical things and a few software things. Main physical
 thing: there was an sqlite 3 database on compactflash (CF) which is
@@ -65,6 +66,105 @@ check-in/register everything is fine, but we can write an invalid
 consolidation id to the card.  This would allow the voter to cast a
 vote, but it would not be counted on the backend because only the
 votes associated with a specific consolidation id would be tallied.
+
+### TJ additonal write-up
+
+TJ has a fantastic additional write-up [here][3]. Notably:
+
+* It runs Windows CE 5.0
+* ExpressPoll software is a giant .NET app with the assembly name `ExPoll`
+* ExpressPoll software uses WinForms for UI
+* Bootloader is proprietary
+* Processor’s architecture is ARM
+* Database file is stored on memory card (more details later)
+
+Several exploits were tested against this, such as the usual
+suspects: buffer overflow, Windows key shortcuts, network exploits,
+etc.
+
+When the memory card is inserted into the machine and it boots up, the
+bootloader first checks for a file called `NK.BIN`. If this file is
+found, it will attempt to load it into RAM and boot into it with
+absolutely no signature verification. The firmware is then flashed and
+is permanent upon next boot.
+
+The `NK.BIN` file is generally a Windows CE 5.0 update for the machine
+bundled with the ExpressPoll software, but an attacker is able to
+upload and run any custom NT kernel, and possibly a Linux image
+(untested thus far).
+
+We tested this on our ExpressPoll 5000, and sure enough, it loaded our
+Windows CE without complaining: [image of loading NK.bin from CF card]
+
+Very similar to the firmware injection exploit, the bootloader also
+checks for an update to itself while booting, with the file name
+`EBOOT.BIN`. It is also loaded without signature verification, but we
+have not been able to get a bootloader to successfully work on a
+machine. However, the bootloader injection itself is confirmed to work
+since the bootloader we put onto the `EBOOT.BIN` file is indeed
+flashed and is present upon reboot without the memory card. This also
+means we basically bricked the thing (we had to get another, heh).
+
+#### .NET `.resources` File Override
+
+When the ExpressPoll software is "launched" from the "Launch Express
+Poll" button, it reads the memory card for a file named
+`ExPoll.resources`. This is a resources file defining any resources
+that the app will use, such as translation strings, images, buttons,
+layouts, etc. It would generally be used for overriding and
+customizing the registration process (for example, adding your own
+logo instead of having the Diebold logo.)
+
+The weak point in this system is that buttons (and potentially other
+UI elements) can be overriden to take different actions, such as run
+an executable stored on the memory card (which is mounted in something
+like `/Storage Card`) or run a command.
+
+If an `ExPoll.resources` file is found, it will first load it into
+memory, use it for that session, and also copy it to the device’s
+internal memory so it can be used again.
+
+This vulnerability was confirmed by creating a random .NET
+`.resources` file, naming it `ExPoll.resources` and copying to the
+memory card. We popped it into the machine, pressed the "Launch
+Express Poll" button, and (as expected), it errored. Woohoo! It loaded
+the file. Sadly, since it also copied to memory, it is essentially
+bricked if you give it a bad file (you can’t get to the "Launch
+Express Poll" button). Sadly, this was the case with our device so I
+don’t have any images of it in this state.
+
+#### Unencrypted SQLite3 Database
+
+When starting the ExpressPoll software, it looks for a file called
+`PollData.db3` on the memory card. This is an standard unencrypted
+SQLite3 database, including *literally all the information*. Polls,
+parties, voters, all of it. (Link coming soon with sample database.)
+Using this information, an attacker could launch several types of
+attacks:
+
+* Data exfiltration
+   * For example, the attacker could easily come with a card that has
+     an empty database, and silently swap out the card when they
+     register to vote, thus obtaining the entire voter database (which
+     includes: name, address, last 4 of SSN, signature, and many
+     others) for the county.
+* Falsifying voter information
+   * For example, the attacker could forge their own database with
+     fake voter information (e.g. change their parties/signatures,
+     etc.) and place it into the machine when they register to vote.
+* Other attacks. Your imagination is the limit when you have access to
+  the entire database.
+
+(JLH: Get schema from TJ.)
+
+#### 2 Open USB Ports
+
+These pose less of a threat, but it is still threatening. An attacker
+could plug any USB device they wanted (for example, a USB Rubber Ducky
+or LAN Turtle) to launch a creative attack. I have tested this with my
+Bash Bunny by spamming the letter “a” infinitely into one of the text
+boxes in an attempt to trigger a buffer overflow and potentially crash
+the .NET app (it didn’t work).
 
 # AVS WinVote
 
@@ -151,3 +251,4 @@ different information!)
 
 [1]: https://twitter.com/TheEdgyDev/
 [2]: https://twitter.com/tjhorner/
+[3]: https://blog.horner.tj/post/hacking-voting-machines-def-con-25
