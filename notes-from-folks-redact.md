@@ -5,7 +5,7 @@
 ### Sean & TJ
 
 Sean Roach ([@TheEdgyDev][1]), TJ Horner ([@tjhorner][2]), Ian Smith,
-Morgan Jones, Thomas Fulmer
+Morgan Jones, Thomas Fulmer, Thomas Richards
 
 Found a few physical things and a few software things. Main physical
 thing: there was an sqlite 3 database on compactflash (CF) which is
