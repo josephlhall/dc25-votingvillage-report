@@ -188,36 +188,13 @@ defined radio kit.
 
 # Sequoia AVC Edge
 
+### Nick
+
 Nick ([redacted])
 
 Edge internal CF, runninc PSOS, real-time OS (developed in 1989) used in retail equipment. Records a lot of data as a hex files... hard to figure out what the results mean. Results are stored, but then sent to PCMCIA. 24th precinct of DC. Candidates and such. Tried to boot in a VM... menu in the PSOS boot file... can see the strings. Also a RAM file that gives us file not found. One of the PCMCIA slots can update the ballot and the other is for getting results off the machine. Saw some stuff with binwalk that there may be use of an 8-bit cipher. Last update to display (video output devices) was in 1989... at least one file not updated since 1989. 2008 election, Obama, McCain, etc. Serial port on back looks like it could be fun.
 
-# iVotronic
-
-Brian Sean
-
-At first we were stimied by a password prompt.
-
-...
-
-# TSx
-
-Joe FitzPatrick (@securelyfitz), Schulyer St. Leger (@docprofsky) ([redacted]), Ryan (github: rqu1, @rqu45), Wasabi ([redacted]), Ayushman ([redacted])
-
-rqu1: will put dumps of two the ERPOM, one from the battery controller, one from the modem. will post on github. string in the firmware of TSx, company/brand makes PC cards, with 2.4GHz Wifi (WaveLAN).
-
-wasabi: EPROM goes to battery controller, PIC that when it's removed, nothing works anymore.
-
-ayushman: memory care, .ini file has the passwords, users modem configuration. 20,0000k chars in the key/value pairs, pop into some sort of terminal. Serial (db9) port needed in order to interact with the terminal.
-
-getting the firmware off right now. openocd v10. command line uses default files. "openocd -f interface/um232h.cfg -f target/pxa255.cfg". one for the tool, one for the chip. Using a um, it told me the ID code of the device (0x69264013). Intel chip. cfg file. Hardware config, ft232h (chip) adafruit breakout board. Standard ARM 5, 20-pin. Debug header pin 3, connects to ft232h c0, treset. Debug header pin 4, connects to debugger pin ground, and is ground (could be any ground). debug header pin 5, tdi connects to pin d1 of the debug header. debug connector pin 5, tdi, connects to d1 of the debug adapter. debug header pin 7, tms, connects to d3 on debug adapter. debug header 9, tclk, goes to pin d0. debug header pin 13, tdo, connects to d2. debug header pin 15, sreset, connects to c1.
-
-that is a server, in a new console, open a terminal, `telnet localhost 444` opens up console type directly `reset halt`. Now the system is rebooted in debugging rig... can use step to step through instructions one by one. Can also start up gdb in another window. To get `gdb -multiarch`. After gdb is running: `set arch armv5te`. `target remote localhost:333` (gdb port). Some quirks... but mostly like running gdb. `dump_image reset.bin 0x0 0x1000000` (~16MB). From that used binwalk v2.1.1 (firmware analysis tool). `binwalk -E reset.bin` entropy indicated the firmware is about 11MB, compressed 3MB file towards the beginning. `binwalk -e reset.bin` identifies files and extracts. Most important file: NK.bin (.Net kernel). Copyright information, and a lot of certificates.
-. Copyright information, and a lot of certificates.
-
-# Sequoia AVC Edge
-
-University of Houston Cybersecurity Club
+### University of Houston Cybersecurity Club
 
 Tsukinaki ([redacted])
 @Whiskeys373n Joe ([redacted])
@@ -225,6 +202,16 @@ Tsukinaki ([redacted])
 16MB CF card, embedded on the main circuit board. holds a proprietary operating system for the machine, uploads ballot information plain text. drivers for the devices. two pcmcia interfaces onthe outside. one used to load the balot information, also to record the count and then offloaded. No hardware and software encryption.
 
 # ES&S iVotronic
+
+### Brian
+
+Brian Sean
+
+At first we were stimied by a password prompt.
+
+(JLH: get more fro Brian)
+
+# Kris
 
 Kris Hardey ([redacted])
 
@@ -240,6 +227,21 @@ Toolchain for reading (IDE toolchain): Microchip MPLabX
 Decompilation: gputils
 
 PEB reader: PIC model 18f2455. Able to pull the firmware off of one of those as well. Have not decompiled, security fuses may be set here.
+
+# TSx
+
+Joe FitzPatrick (@securelyfitz), Schulyer St. Leger (@docprofsky) ([redacted]), Ryan (github: rqu1, @rqu45), Wasabi ([redacted]), Ayushman ([redacted])
+
+rqu1: will put dumps of two the ERPOM, one from the battery controller, one from the modem. will post on github. string in the firmware of TSx, company/brand makes PC cards, with 2.4GHz Wifi (WaveLAN).
+
+wasabi: EPROM goes to battery controller, PIC that when it's removed, nothing works anymore.
+
+ayushman: memory care, .ini file has the passwords, users modem configuration. 20,0000k chars in the key/value pairs, pop into some sort of terminal. Serial (db9) port needed in order to interact with the terminal.
+
+getting the firmware off right now. openocd v10. command line uses default files. "openocd -f interface/um232h.cfg -f target/pxa255.cfg". one for the tool, one for the chip. Using a um, it told me the ID code of the device (0x69264013). Intel chip. cfg file. Hardware config, ft232h (chip) adafruit breakout board. Standard ARM 5, 20-pin. Debug header pin 3, connects to ft232h c0, treset. Debug header pin 4, connects to debugger pin ground, and is ground (could be any ground). debug header pin 5, tdi connects to pin d1 of the debug header. debug connector pin 5, tdi, connects to d1 of the debug adapter. debug header pin 7, tms, connects to d3 on debug adapter. debug header 9, tclk, goes to pin d0. debug header pin 13, tdo, connects to d2. debug header pin 15, sreset, connects to c1.
+
+that is a server, in a new console, open a terminal, `telnet localhost 444` opens up console type directly `reset halt`. Now the system is rebooted in debugging rig... can use step to step through instructions one by one. Can also start up gdb in another window. To get `gdb -multiarch`. After gdb is running: `set arch armv5te`. `target remote localhost:333` (gdb port). Some quirks... but mostly like running gdb. `dump_image reset.bin 0x0 0x1000000` (~16MB). From that used binwalk v2.1.1 (firmware analysis tool). `binwalk -E reset.bin` entropy indicated the firmware is about 11MB, compressed 3MB file towards the beginning. `binwalk -e reset.bin` identifies files and extracts. Most important file: NK.bin (.Net kernel). Copyright information, and a lot of certificates.
+. Copyright information, and a lot of certificates.
 
 # Models of equipment in the Village
 
