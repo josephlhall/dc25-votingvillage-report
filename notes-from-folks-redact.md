@@ -10,7 +10,7 @@ Morgan Jones, Thomas Fulmer
 Found a few physical things and a few software things. Main physical
 thing: there was an sqlite 3 database on compactflash (CF) which is
 written/stored/etc. in the clear (unencrypted). The only thing
-stopping someone from taking this CF card out is one screw, a philips
+stopping someone from taking this CF card out is one screw, a phillips
 head screw -- not even a type of security screw. This would have
 allowed us to be able to do a DoS attack, by simply removing the
 card.
@@ -19,12 +19,12 @@ While we didn't have access to a resident database (JLH: this may have
 been after discovery of a resident DB with 650k voter records on it)
 we were able to make a schema of that db, and initialize it without
 any users. Then we could put it back in with no users. Everyone
-afterwards would not be registereed in that county or precinct, they
+afterwards would not be registered in that county or precinct, they
 would be identified as not registered in that polling place or
 precinct, and they would have likely had to go to another polling
-staton (JLH: or cast a provisional ballot). In this case, the typical
+station (JLH: or cast a provisional ballot). In this case, the typical
 30 minute line would grow precipitously. One could selectively DoS
-counties or precicnts that are for your opponents candidate.
+counties or precincts that are for your opponents candidate.
 
 The (default) username and password for this unit was released on a
 PDF by State of Maryland (username as 1 password as 1111). We
@@ -35,7 +35,7 @@ missing the following sqlite file." We would then create the missing
 file... then it would say "there is the following missing table", and
 we would create the named table. We did this to create each file,
 table, and field in each table (all blank of course as we created them
-from scratch). The schema looke like so (JLH: rinon has the
+from scratch). The schema looks like so (JLH: rinon has the
 schema). There was a consolidation ID which we turned into
 `defcon`. This gave us access to the system with no more errors.
 
@@ -49,7 +49,7 @@ that app, crashing the application. (JLH: as outlined in TJ's post, this didn't 
 We scanned and then used wireshark to investigate its networking. Open
 ports included port 80, 443, and 5002.
 5002 was a bit weird and it seems like an error broadcast, doesn't
-accept any connectinons. 443 closes the connection immediately. 80
+accept any connections. 443 closes the connection immediately. 80
 allows connecting to something but shuts down quickly if we try to
 send too much data.
 
@@ -71,7 +71,7 @@ consolidation id to the card.  This would allow the voter to cast a
 vote, but it would not be counted on the backend because only the
 votes associated with a specific consolidation id would be tallied.
 
-### TJ additonal write-up
+### TJ additional write-up
 
 TJ has a fantastic additional write-up [here][3]. Notably:
 
@@ -120,7 +120,7 @@ customizing the registration process (for example, adding your own
 logo instead of having the Diebold logo.)
 
 The weak point in this system is that buttons (and potentially other
-UI elements) can be overriden to take different actions, such as run
+UI elements) can be overridden to take different actions, such as run
 an executable stored on the memory card (which is mounted in something
 like `/Storage Card`) or run a command.
 
@@ -221,11 +221,11 @@ erased.
 
 Alfredo Ortega ([@OrtegaAlfredo][5])
 
-Alfredo and a few others performed an RF survery of the WinVote
+Alfredo and a few others performed an RF survey of the WinVote
 printer, in order to determine if a TEMPEST attack would be possible
 from a reasonable distance. The unit was emitting a bunch of RF. We
 were not able to correlate with specific actions of the device. Some
-very low signal in our measurments, but would need much, much more
+very low signal in our measurements, but would need much, much more
 data to determine anything. We used [HackRF One][4], a software
 defined radio kit.
 
@@ -252,7 +252,7 @@ that is, could see the strings, but couldn't get it to boot.  There
 was a RAM file that seemed to give them a "file not found" in the boot
 sequence.  One of the PCMCIA slots can update the ballot and the other
 is for getting results off the machine.  Saw some stuff with `binwalk`
-that incidcated that there may be use of an *8-bit cipher* (yes eight
+that indicated that there may be use of an *8-bit cipher* (yes eight
 (8) bit).  Last update to display firmware (video output devices) was
 in 1989; that is, at least one file there had not been updated since
 1989. The data was from the 2008 election -- Obama, McCain, etc. Nick
@@ -268,7 +268,7 @@ board. It held what appeared to be a proprietary operating system for
 the machine, all the uploads of ballot information were in plain
 text. We looked at the drivers for the devices. And then examined the
 two PCMCIA interfaces on the outside, on the back of the machine. One
-slot is used to load the balot information, and the other records the
+slot is used to load the ballot information, and the other records the
 count and then offloaded after the election. No hardware or software
 encryption.
 
@@ -278,7 +278,7 @@ encryption.
 
 Brian Sean
 
-At first we were stimied by a password prompt. Brian found a way to do
+At first we were stymied by a password prompt. Brian found a way to do
 a manufacturer reset, which reset the passwords to `svcsvc` and
 `clrclr` according to documentation found through a quick google
 search for "iVotronic PEB password".
@@ -297,7 +297,7 @@ only the races that the voter is entitled to vote on).
 
 They first hooked up a hardware debugger ([PICkit 3][11],
 debugger/programmer) to various chips on the PEB or PEB reader
-cirtcuit boards.
+circuit boards.
 
 The microcontroller in the PEB is a `PIC16F873`.  They were able to
 pull firmware from one of the chips.  The other two were garbage; the
