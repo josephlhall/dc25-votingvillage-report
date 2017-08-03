@@ -40,7 +40,7 @@ and began trying use a bashbunny -- a USB thing that
 emulates a keyboard. We were sending `A` characters at it to overflow the the
 text field. The thinking is that this is a Windows CE 5, .Net app; and
 we were trying to get it to fill RAM and the RAM manager would then close
-that app, crashing the application. (JLH: unclear if that resulted in anything.)
+that app, crashing the application. (JLH: as outlined in TJ's post, this didn't do more than slow the unit down and "time stopped".)
 
 We scanned and then used wireshark to investigate its networking. Open
 ports included port 80, 443, and 5002.
