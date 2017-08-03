@@ -38,7 +38,7 @@ It was already a well established fact that voting machines were (and
 are) hackable, but only a very limited number of people, mostly in
 academic or industrial contexts, have been allowed to inspect the
 machines before.  Past official studies -- such as the California
-[Top-To-Bottom Review][] and the Ohio [EVEREST Review][6], ten years
+[Top-To-Bottom Review][5] and the Ohio [EVEREST Review][6], ten years
 ago this summer -- had significant restrictions on what the
 participating researchers were allowed to try -- restrictions which
 obviously would not exist for criminals or nation-state attackers.  Of
