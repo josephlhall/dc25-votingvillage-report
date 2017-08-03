@@ -168,9 +168,23 @@ the .NET app (it didn’t work).
 
 # AVS WinVote
 
+### Nick
+
 Nick ([redacted])
 
 We were wokring on the winvote, getting into it, 2 USB ports on the back. Just had to attached a keyboard, ctrl-al-del, task manager... Alt-f run... takes arbitrary usb drive contents. WiFi chipset. WEP 104/40 not even 128. Physical access to back of the machine for 15s can do anything. Open ports, MS08067 - Net API exploit vulnerability. Wasn't able to pop a shell, but it seemed to work but hung the machine. WEP keys are hard-coded. Modem RJ11 jack, will communicate externally. Looking at the file format ... there was a file system but no files. But open in a hex editor and you could see that the files are still there and not securely erased. 3-pin key over the guts.
+
+### Alfredo
+
+Alfredo Ortega ([@OrtegaAlfredo][5])
+
+Alfredo and a few others performed an RF survery of the WinVote
+printer, in order to determine if a TEMPEST attack would be possible
+from a reasonable distance. The unit was emitting a bunch of RF. We
+were not able to correlate with specific actions of the device. Some
+very low signal in our measurments, but would need much, much more
+data to determine anything. We used [HackRF One][4], a software
+defined radio kit.
 
 # Sequoia AVC Edge
 
@@ -226,18 +240,6 @@ Toolchain for reading (IDE toolchain): Microchip MPLabX
 Decompilation: gputils
 
 PEB reader: PIC model 18f2455. Able to pull the firmware off of one of those as well. Have not decompiled, security fuses may be set here.
-
-# AVS WinVote
-
-Alfredo Ortega ([@OrtegaAlfredo][5])
-
-Alfredo and a few others performed an RF survery of the WinVote
-printer, in order to determine if a TEMPEST attack would be possible
-from a reasonable distance. The unit was emitting a bunch of RF. We
-were not able to correlate with specific actions of the device. Some
-very low signal in our measurments, but would need much, much more
-data to determine anything. We used [HackRF One][4], a software
-defined radio kit.
 
 # Models of equipment in the Village
 
