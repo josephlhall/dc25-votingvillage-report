@@ -176,7 +176,46 @@ the .NET app (it didn’t work).
 
 Nick ([email redacted])
 
-We were wokring on the winvote, getting into it, 2 USB ports on the back. Just had to attached a keyboard, ctrl-al-del, task manager... Alt-f run... takes arbitrary usb drive contents. WiFi chipset. WEP 104/40 not even 128. Physical access to back of the machine for 15s can do anything. Open ports, MS08067 - Net API exploit vulnerability. Wasn't able to pop a shell, but it seemed to work but hung the machine. WEP keys are hard-coded. Modem RJ11 jack, will communicate externally. Looking at the file format ... there was a file system but no files. But open in a hex editor and you could see that the files are still there and not securely erased. 3-pin key over the guts.
+Nick and a few others were working on the AVS WinVote.  The first
+thing they did is to attempt to get into the device.  There was a
+locked panel on the front of the device; however 1) the lock is an
+easily-pickable 3-pin lock, typical of hotel mini bars (meaning the
+keys are in wide circulation and [available for very cheap ($10)
+online][7]); and, 2) the hinge on the cover of the locked compartment
+was easily compromised without damage.  This compartment contained a
+printer (presumably for close-of-polls results printing) and a USB
+port.  This physical security protecting the USB port was ineffective,
+due to the findings in the next paragraph.
+
+While examining the case further, they noticed that there were 2
+unprotected/uncovered USB ports on the back of the machine.  These
+were within easy reach of a voter, and unfortunately the privacy
+screen for the AVS WinVote is so private that it would be difficult to
+tell someone was messing with USB ports on the back of the machine
+while voting.  They next thought of attaching a USB keyboard.
+Unfortunately, there was no USB keyboard around in the Voting Village
+and we had to run an errand to get one at a store. When we returned,
+all we had to do was to simply attach the keyboard, type ctrl-al-del
+(the "three-fingered salute" for Windows), and the Windows task
+manager pops up. At that point, we can type `alt-f run` and run any
+software we want to, including software on a USB stick that is
+inserted into the other USB slot on the back of the machine. Seems to
+accept arbitrary USB drive contents. (JLH: This was the first hack of
+the Village, coming around 1:40; the major delay involved procuring a
+USB keyboard.)  Nick said, "With physical access to back of the
+machine for 15s, an attacker can do anything."
+
+The unit surprisingly contained a WiFi chipset. It was using WEP
+104/40-bit encryption -- not even 128-bit WEP (which is still easily
+broken).  The WEP keys are hard-coded.  There are definitely open
+ports on the device; Nick recommended checking out [MS08067][8] -
+which is a .Net API/RPC exploit vulnerability. Nick was not able to
+pop a shell using this, but it seemed to work but then hung the
+machine.  There is a modem with RJ11 (phone) jack, and it will easily
+communicate externally. Looking at the file format: there was a *file
+system*... but no files. But when one opens unallocated space in a hex
+editor, he could see that the files are still there, just not securely
+erased.
 
 ### Alfredo
 
@@ -272,3 +311,5 @@ different information!)
 [4]: https://greatscottgadgets.com/hackrf/
 [5]: https://twitter.com/OrtegaAlfredo
 [6]: https://en.wikipedia.org/wiki/Electronic_pollbook
+[7]: http://timeclocksusa.com/134-Time-Clock
+[8]: https://technet.microsoft.com/en-us/library/security/ms08-067.aspx
