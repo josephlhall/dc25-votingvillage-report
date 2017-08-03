@@ -32,7 +32,7 @@ we would create the named table. We did this to create each file,
 table, and field in each table (all blank of course as we created them
 from scratch). The schema looke like so (JLH: rinon has the
 schema). There was a consolidation ID which we turned into
-"defcon". This gave us access to the system with no more errors.
+`defcon`. This gave us access to the system with no more errors.
 
 We then stopped and began trying use bashbunny -- a USB thing that
 emulates a keyboard. We were sending "A"'s at it to overflow the the
@@ -42,11 +42,27 @@ that app. (JLH: unclear if that resulted in anything.)
 
 We used wireshark to see what the open ports 80, 443, 5002 were doing;
 5002 was a bit weird and it seems like an error broadcast, doesn't
-accept any connectinons. 443 closes the connection.
+accept any connectinons. 443 closes the connection immediately. 80
+allows connecting to something but shuts down quickly if we try to
+send too much data.
 
-firware upgrades. looks for EBOOT.bin NK.bin... bootloder update, NK is kernal. will find these files download into RAM and the flash the bootloader. No signature.
+We then explored the possibility of doing firmware upgrades. The
+device looks for `EBOOT.bin` (bootloader) and `NK.bin` (kernel). If
+`Eboot.bin` is present, the device will perform a bootloder update
+with that file; if `NK.bin` is present, it will load that into RAM an
+replace the kernel/OS on the device with it. The device will find
+these files if they are present on the CF card, download them into RAM
+and the flash the bootloader or update the kernel. No signature
+checking is performed.
 
-Smartcard reader. What if we can make it so that the card... what if you register everything is fine, but write an invalid id to the card. this would allow casting a vote, but would not be counted on the backend.
+We explored some attack vectors with the smartcard reader on the
+device. We considered what if we could make it so that the card
+silently discards your vote? We think we can (JLH: how far did this
+team get?) modify a smartcard with this unit so that when you
+check-in/register everything is fine, but we can write an invalid
+consolidation id to the card.  This would allow the voter to cast a
+vote, but it would not be counted on the backend because only the
+votes associated with a specific consolidation id would be tallied.
 
 # AVS WinVote
 
