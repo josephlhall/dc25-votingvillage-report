@@ -129,17 +129,17 @@ destroyed in the process. This freedom to take such risks accelerates
 the process and can lead to completely new discoveries of new
 vulnerabilities.
 
-Also, this expanded the number of people who have now had first hand
+The Voting Village expanded the number of people who have now had first hand
 experience and knowledge of these systems. By Sunday, the people who
 started hacking on Friday were the experts and they were teaching and
 helping the new people who just started on Sunday.
 
 In the village we had a number of technology savvy election officials,
 who came to hack the very machines they use in their jurisdictions to
-run elections. This was their first opportunity to take a look
-themselves into the machines--machines they were forced to use and
-manage, but were prohibited to study--and find answers to their own
-questions and learn the truth about that equipment.
+run elections.  This was their first opportunity to take a look
+themselves into the machines -- machines they were required to use and
+manage, but were prohibited to study in depth -- and find answers to their own
+questions and learn more about that equipment.
 
 ## Next Year
 
