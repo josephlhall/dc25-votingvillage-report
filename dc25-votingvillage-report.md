@@ -1,6 +1,6 @@
 # Report from the DC25 Voting Machine Hacking Village
 
-Author(s): [Joseph Lorenzo Hall][1], [Harri Hursti][4], [rinon][2]
+Author(s): [Joseph Lorenzo Hall][1], [Harri Hursti][4]
 
 ***--DRAFT--THIS IS A DRAFT AND UNOFFICIAL UNTIL WE AGREE ON A RELEASE
    CANDIDATE--DRAFT--***
