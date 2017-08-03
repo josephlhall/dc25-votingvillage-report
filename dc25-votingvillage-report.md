@@ -84,6 +84,9 @@ The goals of the DEF CON Voting Village were:
 
 ## Equipment in the Village
 
+Village organizers worked hard to procure a variety of voting
+equipment, including:
+
 * AVS WinVote Software Version 1.5.4 [hw version N/A]
 * Premier AccuVote TSx -- TS Unit Model Number AV-TSx; firmware 4.7.8
 * ES&S iVotronic -- Hardware Revision 1.1 (ES&S Code IV 1.24.15.a);
