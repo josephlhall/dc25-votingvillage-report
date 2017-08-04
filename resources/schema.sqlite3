@@ -1,0 +1,126 @@
+CREATE TABLE Voters ( 
+	voterId INT PRIMARY KEY,
+	status CHAR (1) NOT NULL,
+	dateOfBirth DATE,
+	precinctId INT DEFAULT 0,
+	countyId INT DEFAULT 0,
+	partyId INT DEFAULT 0,
+	language VARCHAR (16),
+	idRequired CHAR (1),
+	absentee CHAR (1),
+	ssnLast4 CHAR (4),
+	driversLicense VARCHAR (32),
+	affidavitNumber VARCHAR (32),
+	houseNumber VARCHAR(16) COLLATE NOCASE,
+	houseFraction VARCHAR (8),
+	streetName VARCHAR (64) COLLATE NOCASE NOT NULL,
+	apartmentNumber VARCHAR (16) COLLATE NOCASE,
+	city VARCHAR (64),
+	zip VARCHAR (10),
+	nameFirst VARCHAR (32) COLLATE NOCASE,
+	nameMiddle VARCHAR (32) COLLATE NOCASE,
+	nameLast VARCHAR (64) COLLATE NOCASE NOT NULL,
+	middleInitial CHAR (1) COLLATE NOCASE,
+	namePrefix VARCHAR (5),
+	nameSuffix VARCHAR (5),
+	comments VARCHAR (256),
+	userField1 VARCHAR (16),
+	userField2 VARCHAR (16),
+	ConsolidationID INT DEFAULT 0
+);
+CREATE TABLE VoterSignatures ( 
+	voterId INT PRIMARY KEY,
+	signature BLOB (8000)
+);
+CREATE TABLE Precincts ( 
+	precinctId INT PRIMARY KEY,
+	precinctNumber VARCHAR (64),
+	consolidationId INT,
+	portion CHAR(3),
+	[name] VARCHAR (64),
+	baseUnitId INT,
+	reportingUnitId INT,
+	ballotId VARCHAR(16),
+	voterCount INT
+);
+CREATE TABLE Partys (
+	partyId INT PRIMARY KEY,
+	[name] VARCHAR (64),
+	abbreviatedName VARCHAR (5),
+	switchFrom CHAR (1),
+	switchTo CHAR (1),
+	ballotOnly CHAR (1),
+	vGroup1Id INT,
+	vGroup2Id INT,
+	sortOrder INT DEFAULT 0
+);
+CREATE TABLE Options (
+	[name] VARCHAR (64) PRIMARY KEY,
+	value VARCHAR (512)
+);
+CREATE TABLE Consolidations (
+	consolidationId INT PRIMARY KEY,
+	consolidationNum VARCHAR (16),
+	consolidationName VARCHAR (64),
+	pollName VARCHAR (64),
+	pollAddress VARCHAR (64),
+	pollCityStateZip VARCHAR (256),
+	pollTelephone VARCHAR (16),
+	loginPassword VARCHAR (16),
+	supervisorPassword VARCHAR (16),
+	countyId INT,
+	vCenterId INT
+);
+CREATE TABLE Streets (
+	streetId INT PRIMARY KEY,
+	streetName VARCHAR (64) COLLATE NOCASE,
+	city VARCHAR (64),
+	zip VARCHAR (16),
+	houseFrom VARCHAR(16) COLLATE NOCASE,
+	houseTo VARCHAR(16) COLLATE NOCASE,
+	side CHAR (1),
+	apartmentFrom VARCHAR (16) COLLATE NOCASE,
+	apartmentTo VARCHAR (16) COLLATE NOCASE,
+	precinctId INT
+);
+CREATE TABLE Countys (
+	countyId INT PRIMARY KEY,
+	countyNumber VARCHAR (128),
+	countyName VARCHAR (256),
+	gemsElectionId INT,
+	gemsDlVersion INT,
+	gemsCounterGroup INT,
+	gemsElectionFile VARCHAR (256),
+	gemsElectionName VARCHAR (256),
+	networkSettings VARCHAR (256)
+);
+CREATE TABLE Ballots (
+	ballotId VARCHAR(16) NOT NULL,
+	partyId INT NOT NULL,
+	style VARCHAR (256),
+	PRIMARY KEY (ballotId, partyId)
+);
+CREATE TABLE AlternateVoters (
+	precinctId INT NOT NULL,
+	voterId INT NOT NULL,
+	PRIMARY KEY (precinctId, voterId)
+);
+CREATE TABLE VoterBallots (
+	ballotId VARCHAR(16) NOT NULL,
+	voterPartyId INT NOT NULL,
+	ballotPartyId INT NOT NULL,
+	PRIMARY KEY (ballotId, voterPartyId, ballotPartyId)
+);
+CREATE TABLE [ConsolidationMaps] (
+  [consolidationId] INT, 
+  [map] BLOB (200000), 
+  CONSTRAINT [sqlite_autoindex_ConsolidationMaps_1] PRIMARY KEY ([consolidationId]));
+CREATE INDEX ixConsolidations0 ON Consolidations ( consolidationNum );
+CREATE INDEX ixPrecincts0 ON Precincts ( consolidationId );
+CREATE INDEX ixStreets1 ON Streets ( streetName, houseFrom, houseTo );
+CREATE INDEX ixVoters0 ON Voters ( nameLast, nameFirst, middleInitial, zip, dateOfBirth );
+CREATE INDEX ixVoters1 ON Voters ( ConsolidationID, nameLast, nameFirst, middleInitial, zip, dateofBirth );
+CREATE INDEX ixVoters2 ON Voters ( countyId, nameLast, nameFirst, middleInitial, zip, dateOfBirth );
+CREATE INDEX ixVoters3 ON Voters ( streetName, houseNumber, apartmentNumber, zip );
+CREATE INDEX ixVoters4 ON Voters ( ConsolidationID, streetName, houseNumber, apartmentNumber, zip );
+CREATE INDEX ixVoters5 ON Voters ( countyId, streetName, houseNumber, apartmentNumber, zip );

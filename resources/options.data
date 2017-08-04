@@ -1,0 +1,44 @@
+advancedVibsSelector|Yes
+autoOpen|Main
+autoProvisionalID|Yes
+barcodeReaderAttached|No
+clearRosterName|No
+countyBallotParty|Any
+countyName|Shelby County, TN
+countyPrecinctSelect|Yes
+electionDate|11/04/2008
+electionID|-1
+electionTitle|2008 Presidential Election
+issueDREOffline|No
+issueProvisionalBallots|None
+issueStandardBallots|None
+loginPassword|1111
+maxSearchCount|30
+maxStreetSearchCount|30
+networkAddress|*
+networkAttached|1
+networkPort|5002
+notifyDREissued|No
+notifyPaperIssued|No
+partisanPrimary|0
+pollsClose|7:00 PM
+pollsOpen|7:00 AM
+printerAttached|No
+provisionalBallotParty|Any
+provisionalPrecinctSelect|Yes
+registrarPassword|3141
+signaturePadAttached|No
+state|CA
+streetLookup|Yes
+supervisorCardRequired|No
+supervisorPassword|3141
+unregisteredBallotParty|Any
+unregisteredPrecinctSelect|Yes
+voterLookup|Both
+maxNameSearchCount|30
+Switching Parties|Straight
+VoterBallotPartyDefault|Yes
+signaturesPresent|No
+dbCreateDate|11/1/2008 10:05:18 PM
+dimsElectionId|0
+dimsExtractionNo|0
