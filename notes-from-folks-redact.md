@@ -348,9 +348,12 @@ Joe FitzPatrick ([@securelyfitz][17]), Schulyer St. Leger
 ([@docprofsky][18]) ([email redacted]), Ryan (github: [rqu1][19],
 [@rqu45][20]), Wasabi ([email redacted]), Ayushman ([email redacted])
 
-wasabi: one EPROM goes to the battery controller, and it's clear that
+Wasabi mapped out that one EPROM goes to the battery controller, and it's clear that
 when this PIC is removed, nothing works anymore.  That is an easy DoS
-vector.
+vector as the PIC is in a socket (no desoldering required), although
+you would have to take off the entire back cover to access it. Wasabi
+was able to extract the `NK.bin` contents and found a LAN and dialup
+modem console in the firmware.
 
 Ayushman was exploring how careful this device is with memory care.
 There is an `.ini` file that has the passwords, users, modem
