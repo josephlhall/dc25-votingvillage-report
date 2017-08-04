@@ -287,7 +287,7 @@ search for "iVotronic PEB password".
 
 ### Kris
 
-Kris Hardey ([email redacted])
+Kris Hardy ([email redacted])
 
 Kris and his team focused on attacking access to the PEB and PEB
 readers (the ES&S iVotronic uses a small device called a personal
