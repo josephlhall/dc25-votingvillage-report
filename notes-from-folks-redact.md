@@ -394,7 +394,7 @@ opened a terminal, and did `telnet localhost 444` which opens up
 console on the machine.  Then they typed directly `reset halt` to
 reboot.  Now the system is rebooted in the debugging rig; they could
 then step through instructions one by one. They could also start up
-`gdb` in another window.  To do this run `gdb -multiarch`. After gdb
+`gdb` in another window.  To do this run `gdb-multiarch`. After gdb
 is running you can type: `set arch armv5te` to set the target
 architecture. Then point it to the gdb port with `target remote
 localhost:333`.  There were some small quirks; but the result was
