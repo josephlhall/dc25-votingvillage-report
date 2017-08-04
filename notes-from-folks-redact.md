@@ -375,7 +375,7 @@ default files and we ran the following commands:
     openocd -f interface/um232h.cfg -f target/pxa255.cfg
 
 (one for the tool, one for the chip).  Using the UM, it told me the ID
-code of the device (`0x69264013`) which is a [PX255 Intel chip][22],
+code of the device (`0x69264013`) which is a [PXA255 Intel chip][22],
 that's the `.cfg` file. In terms of hardware configuration, they used
 an [Adafruit FT232H breakout board][23].  This was a standard ARMv5,
 20-pin.  Here's the pinout (debug header pin, chip function):
