@@ -274,16 +274,16 @@ encryption.
 
 # ES&S iVotronic
 
-### Brian
+### Scott
 
-Brian Sean
+Scott Brion
 
 At first we were stymied by a password prompt. Brian found a way to do
 a manufacturer reset, which reset the passwords to `svcsvc` and
 `clrclr` according to documentation found through a quick google
 search for "iVotronic PEB password".
 
-(JLH: get more fro Brian)
+(JLH: get more from Scott)
 
 ### Kris
 
