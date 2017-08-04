@@ -2,6 +2,14 @@
 
 (This is not a voting machine but an [e-pollbook][6])
 
+We have additional resources from this device in this repository:
+
+* [ExPoll.resources][35] -- A Windows CE `.resources` file for this
+  device.
+* [options.data][36] -- What appears to be a configuration file for
+  the ExpressPoll application software.
+* [schema.sqlite3][37] -- the DB schema of the data on the device.
+
 ### Sean & TJ
 
 Sean Roach ([@TheEdgyDev][1]), TJ Horner ([@tjhorner][2]), Ian Smith,
@@ -239,7 +247,6 @@ Apparently ES&S sold refurbished units as recently as 2016:
     printers with battery back-up and power brick. The contract amount was $178,050.
 
 (from http://bpw.maryland.gov/MeetingDocs/2016-July-6-Agenda.pdf)
-
 
 # AVS WinVote
 
@@ -538,3 +545,6 @@ different information!)
 [32]: http://elections.maryland.gov/pdf/Minutes_07-24-2006.pdf
 [33]: https://www.ola.state.md.us/Reports/Election%20status%20reports/ElectionStatusReport9-28-06.pdf
 [34]: http://www.co.camden.ga.us/DocumentCenter/Home/View/2404
+[35]: https://github.com/josephlhall/dc25-votingvillage-report/blob/master/resources/ExPoll.resources
+[36]: https://github.com/josephlhall/dc25-votingvillage-report/blob/master/resources/options.data
+[37]: https://github.com/josephlhall/dc25-votingvillage-report/blob/master/resources/schema.sqlite3
