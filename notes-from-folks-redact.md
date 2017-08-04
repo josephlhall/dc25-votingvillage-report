@@ -170,6 +170,77 @@ Bash Bunny by spamming the letter “a” infinitely into one of the text
 boxes in an attempt to trigger a buffer overflow and potentially crash
 the .NET app (it didn’t work).
 
+### Stephen (@rinon), Heather (github: heathervm)
+
+We were working with an ExpressPoll 5000 software version 2.0.27. This device
+has a CF card slot and a PCMCIA storage card slot on the back, covered by a
+cover with a hole that appears to be for attaching a tamper evident seal to this
+cover. The device also has two unprotected USB ports and an RJ45 (ethernet) port
+on the back.
+
+We also started by recreating a database schema from SQL error messages that the
+device helpfully provided for the `PollData.db3` on removable storage. After
+finding that the default password (1111) from
+the
+[Maryland State Board of Elections ExpressPoll Pollbook Acceptance Test Guide][26] still
+worked we were able to reconstruct the following (incomplete) database schema:
+
+    CREATE TABLE Options (int id);
+    CREATE TABLE Consolidations (consolidationNum int, consolidationId, consolidationName, countyId, vCenterId, pollName, pollAddress, pollCityStateZip, pollTelephone);
+    CREATE TABLE users (username, password);
+    CREATE TABLE Precincts (consolidationId, precinctId, precinctNumber, portion, portions, ballotId, reportingUnitId, baseUnitId);
+    CREATE TABLE Countys (countyId, gemsElectionFile, gemsElectionId, gemsDlVersion, gemsElectionName, countyName, countyNumber);
+    CREATE TABLE Partys (sortOrder, partyId, name, abbreviatedName, vGroup1Id, vGroup2Id);
+    CREATE TABLE Ballots (ballotId, precinctId, style, name);
+    CREATE TABLE ConsolidationMaps (consolidationId);
+    CREATE TABLE Voters (voterId, precinctId, name, status, idRequired, absentee, nameLast, nameFirst, middleInitial, partyId);
+    CREATE TABLE Streets (streetName, houseFrom, houseTo, streetId, city, state, zip, side, apartmentFrom, apartmentTo, precinctId);
+
+As others have highlighted, information in this database is unencrypted and
+available for reading and writing by anyone who can access the back panel of the
+device. In the field this panel should be protected by a tamper evident seal,
+but this is a very weak mitigation.
+
+We also tested providing a modified `ExPoll.resources` file to the device. It
+does appear that this file is cached, at least in part, since modifications to
+this information persist even after the file is removed from flash/PCMCIA
+storage. This file is a .NET 1.1 resources file that programs or customizes the
+UI of the pollbook. We were unable to determine exactly how this UI is
+customized, but adding a valid resources file dramatically altered the UI of the
+machine and we were unable to revert these changes. We tried overflowing string
+values in this resource file to no effect.
+
+The device keeps a log database (sqlite3) containing an event log with login,
+logout, power, load, and open events. However, this log would not be sufficient
+to prevent tampering. It is only written by the device and does not reflect any
+file changes that occur on the disks.
+
+#### Hardware information
+
+Main Processor: Intel X Scale (ARMv5) PXA270. Looks to be packaged by Marvell.
+
+Flash Memory: Numonyx StrataFlash (P30), mounted on a small daughterboard that
+plugs into the corner of the main PCB.
+
+Other components:
+- ATMel Two-wire Serial EEPROM (AT24C08A iirc?)
+- XILINX XC2C64A CoolRunner-II CPLD
+- Samsung K4M56323LG SDRAM
+- TI SN74LVCH16T245 16-bit Dual-supply Bus Transceiver
+
+### Miscellaneous Resources
+
+ExpressPoll 5000 is certified for use in [AZ][27], [IN][28], [VA][29], [PA][30], [FL][31], [MD][32] ([interesting addendum report][33]), [GA][34] (and more, I got tired of searching).
+
+Apparently ES&S sold refurbished units as recently as 2016:
+
+    Remarks: The Board of Public Works approved the State Board of Elections awarding a
+    contract for electronic poll books: 150 refurbished ExpressPoll 5000 units and 150 ExpressPoll
+    printers with battery back-up and power brick. The contract amount was $178,050.
+
+(from http://bpw.maryland.gov/MeetingDocs/2016-July-6-Agenda.pdf)
+
+
 # AVS WinVote
 
 ### Nick
@@ -431,7 +502,7 @@ different information!)
 * Sequoia AVC Edge; version 5.0.24 **[Note: unsure if Edge I or Edge
   II]**
 * AVS WinVote version 1.5.4 **[Note: did not capture HW version]**
-* Diebold Express Poll 5000; version 2.1.1
+* Diebold Express Poll 5000; versions 2.1.1, 2.0.27
 
 [1]: https://twitter.com/TheEdgyDev/
 [2]: https://twitter.com/tjhorner/
@@ -458,3 +529,12 @@ different information!)
 [23]: https://learn.adafruit.com/adafruit-ft232h-breakout/overview
 [24]: https://github.com/devttys0/binwalk
 [25]: https://github.com/rqu1/HackTheElection
+[26]: https://www.eac.gov/assets/1/28/PollbookAcceptanceTest_v1.3_03092016.pdf
+[27]: https://www.azsos.gov/sites/azsos.gov/files/2016_0220_-_official_list.pdf
+[28]: https://www.in.gov/sos/elections/files/Vendor_Certified_Equipment_Configuration.pdf
+[29]: http://www.elections.virginia.gov/registration/voting-systems/
+[30]: http://www.dos.pa.gov/VotingElections/Documents/Voting%20Systems/ExpressPoll%205000%20w%20EZRoster%202.7.12.4,%20Cardwriter/Sec%20Rep.pdf
+[31]: http://dos.myflorida.com/media/695120/dominion-gems-release-1216-version-1-revision-2-certification.pdf
+[32]: http://elections.maryland.gov/pdf/Minutes_07-24-2006.pdf
+[33]: https://www.ola.state.md.us/Reports/Election%20status%20reports/ElectionStatusReport9-28-06.pdf
+[34]: http://www.co.camden.ga.us/DocumentCenter/Home/View/2404
