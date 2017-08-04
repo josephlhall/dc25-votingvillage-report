@@ -5,7 +5,7 @@
 We have additional resources from this device in this repository:
 
 * [ExPoll.resources][35] -- A Windows CE `.resources` file for this
-  device.
+  device (BINARY).
 * [options.data][36] -- What appears to be a configuration file for
   the ExpressPoll application software.
 * [schema.sqlite3][37] -- the DB schema of the data on the device.
