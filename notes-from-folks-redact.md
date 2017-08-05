@@ -361,7 +361,7 @@ ES&S iVotronic
 1. Components Analyzed
    1. PEBs (Personal Election Ballot)
    2. PEB Reader
-   3. iVotronic Voting machine
+   3. iVotronic voting machine
 2. Components not analyzed
    1. The election management software (UNITY)
    2. Compact Flash card
@@ -376,34 +376,32 @@ unique serial number. The PEB controls authentication and access to
 the voting machine. The pin-outs for the serial connection are as
 follows;
 
-* pin 1, `pgd`
-Pin1 –
-Pin2 -
-Pin3 – IN 
-Pin4 - OUT
-Pin5 – Ground
-Pin6 – 5v
+* pin 1, 
+* pin 2, 
+* pin 3, `IN` 
+* pin 4, `OUT`
+* pin 5, `Ground`
+* pin 6, `5v`
 
 ##### PEB Reader
 
-The PEB reader contains an eprom, 8 bit processor, USB port, serial
-pins and an IR receiver port. Communication to the firmware was
+The PEB reader contains an EPROM, 8-bit processor, USB port, serial
+pins, and an IRdA receiver port.  Communication to the firmware was
 established through the serial PINs, however nothing of value was
 obtained. The pin-outs for the serial connection are as follows;
 
-* pin 1, `pgd`
-Pin1 –
-Pin2 -
-Pin3 – IN 
-Pin4 - OUT
-Pin5 – Ground
-Pin6 – 5v
+* pin 1,
+* pin 2,
+* pin 3, `IN`
+* pin 4, `OUT`
+* pin 5, `Ground`
+* pin 6, `5v`
 
 ##### Voting Machine
 
 The iVotronic machine is a touch screen interface with a PEB slot,
-compact flash slot, audio port and standard DB9 serial port. A
-functioning PEB is required to activate the voting machine. The
+compact flash slot, audio port and standard DB9 serial port.  A
+functioning PEB is required to activate the voting machine.  The
 compact flash and serial port are externally accessible and can be
 used to extract data through system functions. There are unique
 passwords for each configuration menu item. These passwords were
