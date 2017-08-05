@@ -159,6 +159,8 @@ destroyed in the process. This freedom to take such risks accelerates
 the process and can lead to completely new discoveries of new
 vulnerabilities.
 
+### Vigorous, Diverse Attendance
+
 The Voting Village expanded the number of people who have now had
 first hand experience and knowledge of these systems. By Sunday, the
 people who started hacking on Friday were the experts and they were
@@ -170,6 +172,49 @@ run elections.  This was their first opportunity to take a look
 themselves into the machines -- machines they were required to use and
 manage, but were prohibited to study in depth -- and find answers to
 their own questions and learn more about that equipment.
+
+### Discovery of Voter Data on ExpressPoll electronic pollbooks
+
+As covered by the press (["Personal Info of 650,000 Voters Discovered
+on Poll Machine Sold on Ebay"][15]), the ExpressPoll electronic
+pollbooks that organizers obtained for the Voting Village were not
+properly decommissioned, and they had live voter file data covering
+654,517 voters from Shelby County, Tennessee circa 2008.  The database
+schema (i.e, the list of elements in the database) included the
+following data elements: `status` (voter registration status),
+`dateOfBirth`, `precinctId`, `countyId`, `partyId`, `language`,
+`idRequired`, `absentee`, `ssnLast4`, `driversLicense`,
+`affidavitNumber` (serial number associated with voter registration
+application), `houseNumber`, `streetName`, `apartmentNumber`, `city`,
+`zip`, `nameFirst`, `nameMiddle`, `nameLast`, `middleInitial`,
+`namePrefix`, and `nameSuffix`.  We were unable to verfify this data
+extensively, although an initial examination seemed to indicate that
+the `ssnLast4` field was not populated.  Full voter residential
+addresses seemed valid, posing an uncertain risk to individuals that
+require heightened privacy about their physical address, for example,
+federal judges, law enforcement officers, victims of domestic violence
+and other crimes such as stalking.  We initiated disclosure to Shelby
+County, Tennessee although the news of the existence of these records
+spread quickly.  We secured one copy of this data with one of the
+Village organizers and destroyed the remaining copies and removed them
+from the machines in the Village.
+
+### AVS WinVote is a Complete Pwnage Platform
+
+The AVS WinVote did not fare well against the hackers who examined it
+during the Village.  Carsten Schürmann was able to remotely compromise
+this system completely from across the room via WiFi, giving him
+complete control over the machine and the data it holds.  This would
+allow for simple disruption -- he could turn the machine off remotely
+-- targeted voter privacy leakage -- he could mirror the WinVote
+display remotely on his own machine -- and, most troublingly, vote
+changing attacks -- he could read and write software to the WinVote
+and change its vote database without detection.  This became even more
+stark when a hacker, Nick, plugged a USB keyboard into the back of the
+machine -- this is a proximate attack as opposed to Carsten's remote
+attack.  Nick was able to hit the windows command `ctrl-alt-del`, get
+access to the Windows CE Task Manager, install WinAMP, and [play a
+full video and audio Rick roll][16].
 
 ## Next Year
 
@@ -220,3 +265,5 @@ Please get in touch with us if you have other ideas!
 [12]: https://en.wikipedia.org/wiki/DRE_voting_machine
 [13]: https://en.wikipedia.org/wiki/Electronic_pollbook
 [14]: http://www.crypto.com/
+[15]: http://gizmodo.com/personal-info-of-650-000-voters-discovered-on-poll-mach-1797438462
+[16]: http://www.nbcnews.com/tech/tech-news/hackers-were-able-breach-then-rick-roll-voting-machine-within-n788001
