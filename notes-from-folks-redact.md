@@ -10,7 +10,7 @@ We have additional resources from this device in this repository:
   the ExpressPoll application software.
 * [schema.sqlite3][37] -- the DB schema of the data on the device.
 
-### Sean & TJ
+## Sean & TJ
 
 Sean Roach ([@TheEdgyDev][1]), TJ Horner ([@tjhorner][2]), Ian Smith,
 Morgan Jones, Thomas Fulmer, Thomas Richards
@@ -20,8 +20,7 @@ thing: there was an sqlite 3 database on compactflash (CF) which is
 written/stored/etc. in the clear (unencrypted). The only thing
 stopping someone from taking this CF card out is one screw, a phillips
 head screw -- not even a type of security screw. This would have
-allowed us to be able to do a DoS attack, by simply removing the
-card.
+allowed us to be able to do a DoS attack, by simply removing the card.
 
 While we didn't have access to a resident database (JLH: this may have
 been after discovery of a resident DB with 650k voter records on it)
@@ -47,28 +46,29 @@ from scratch). The schema looks like so (JLH: rinon has the
 schema). There was a consolidation ID which we turned into
 `defcon`. This gave us access to the system with no more errors.
 
-We then attempted to see if bad data in the database could cause problems
-and began trying use a bashbunny -- a USB thing that
-emulates a keyboard. We were sending `A` characters at it to overflow the the
+We then attempted to see if bad data in the database could cause
+problems and began trying use a bashbunny -- a USB thing that emulates
+a keyboard. We were sending `A` characters at it to overflow the the
 text field. The thinking is that this is a Windows CE 5, .Net app; and
-we were trying to get it to fill RAM and the RAM manager would then close
-that app, crashing the application. (JLH: as outlined in TJ's post, this didn't do more than slow the unit down and "time stopped".)
+we were trying to get it to fill RAM and the RAM manager would then
+close that app, crashing the application. (JLH: as outlined in TJ's
+post, this didn't do more than slow the unit down and "time stopped".)
 
 We scanned and then used wireshark to investigate its networking. Open
-ports included port 80, 443, and 5002.
-5002 was a bit weird and it seems like an error broadcast, doesn't
-accept any connections. 443 closes the connection immediately. 80
-is the default Windows CE server ("Welcome to Windows CE!...") or something; itallows connecting shuts down quickly if we try to
-send too much data.
+ports included port 80, 443, and 5002.  5002 was a bit weird and it
+seems like an error broadcast, doesn't accept any connections. 443
+closes the connection immediately. 80 is the default Windows CE server
+("Welcome to Windows CE!...") or something; itallows connecting shuts
+down quickly if we try to send too much data.
 
-We then explored the possibility of doing unauthorized firmware upgrades. The
-device looks for `EBOOT.bin` (bootloader) and `NK.bin` (kernel). If
-`Eboot.bin` is present, the device will perform a bootloder update
-with that file; if `NK.bin` is present, it will load that into RAM an
-replace the kernel/OS on the device with it. The device will find
-these files if they are present on the CF card, download them into RAM
-and the flash the bootloader or update the kernel. No signature
-checking is performed.
+We then explored the possibility of doing unauthorized firmware
+upgrades. The device looks for `EBOOT.bin` (bootloader) and `NK.bin`
+(kernel). If `Eboot.bin` is present, the device will perform a
+bootloder update with that file; if `NK.bin` is present, it will load
+that into RAM an replace the kernel/OS on the device with it. The
+device will find these files if they are present on the CF card,
+download them into RAM and the flash the bootloader or update the
+kernel. No signature checking is performed.
 
 We explored some attack vectors with the smartcard reader on the
 device. We considered what if we could make it so that the card
@@ -79,7 +79,7 @@ consolidation id to the card.  This would allow the voter to cast a
 vote, but it would not be counted on the backend because only the
 votes associated with a specific consolidation id would be tallied.
 
-### TJ additional write-up
+## TJ additional write-up
 
 TJ has a fantastic additional write-up [here][3]. Notably:
 
@@ -117,7 +117,7 @@ since the bootloader we put onto the `EBOOT.BIN` file is indeed
 flashed and is present upon reboot without the memory card. This also
 means we basically bricked the thing (we had to get another, heh).
 
-#### .NET `.resources` File Override
+### .NET `.resources` File Override
 
 When the ExpressPoll software is "launched" from the "Launch Express
 Poll" button, it reads the memory card for a file named
@@ -145,7 +145,7 @@ bricked if you give it a bad file (you can’t get to the "Launch
 Express Poll" button). Sadly, this was the case with our device so I
 don’t have any images of it in this state.
 
-#### Unencrypted SQLite3 Database
+### Unencrypted SQLite3 Database
 
 When starting the ExpressPoll software, it looks for a file called
 `PollData.db3` on the memory card. This is an standard unencrypted
@@ -169,7 +169,7 @@ attacks:
 
 (JLH: Get schema from TJ.)
 
-#### 2 Open USB Ports
+### 2 Open USB Ports
 
 These pose less of a threat, but it is still threatening. An attacker
 could plug any USB device they wanted (for example, a USB Rubber Ducky
@@ -178,7 +178,7 @@ Bash Bunny by spamming the letter “a” infinitely into one of the text
 boxes in an attempt to trigger a buffer overflow and potentially crash
 the .NET app (it didn’t work).
 
-### Stephen (@rinon), Heather (github: heathervm)
+## Stephen (@rinon), Heather (github: heathervm)
 
 We were working with an ExpressPoll 5000 software version 2.0.27. This device
 has a CF card slot and a PCMCIA storage card slot on the back, covered by a
@@ -223,7 +223,7 @@ logout, power, load, and open events. However, this log would not be sufficient
 to prevent tampering. It is only written by the device and does not reflect any
 file changes that occur on the disks.
 
-#### Hardware information
+### Hardware information
 
 Main Processor: Intel X Scale (ARMv5) PXA270. Looks to be packaged by Marvell.
 
@@ -250,13 +250,12 @@ Apparently ES&S sold refurbished units as recently as 2016:
 
 # AVS WinVote
 
-### Carsten Schürmann
+## Carsten Schürmann
 
 From Carsten:
 
-I was the one who hacked the WinVote machine in 90 minutes.
-
-I did neither touch nor get closer to the machine then 10 meters.
+I was the one who hacked the WinVote machine in 90 minutes. I did
+neither touch nor get closer to the machine then 10 meters.
 
 The reason that it took me 90 minutes was not that I had to buy a USB
 keyboard, but that I went to Barbara Simons talk, which took 60
@@ -268,10 +267,9 @@ keyboard.)  The hack was not a USB hack, it was wireless hack.  Recall
 that the the Winvote always has wireless turned on.
 
 It took me a few minutes to figure out the IP address of the machine
-(which was `100.100.7.151`).
-
-It too me a few seconds to break into the machine and get access to
-the vote database using he [MS03-26-DCOM][39] exploit from 2003.
+(which was `100.100.7.151`). It too me a few seconds to break into the
+machine and get access to the vote database using he
+[MS03-26-DCOM][39] exploit from 2003.
 
 * I could read and update the vote database;
 * I could mirror whatever was shown on the machine on my laptop; and,
@@ -293,7 +291,7 @@ have used was applicable already then.
 BTW, when you use Remote Desktop (password: `admin`), you can even start
 the Task Manager wirelessly — with all administrator privileges.
 
-### Nick
+## Nick
 
 Nick ([email redacted])
 
@@ -338,7 +336,7 @@ system*... but no files. But when one opens unallocated space in a hex
 editor, he could see that the files are still there, just not securely
 erased.
 
-### Alfredo
+## Alfredo
 
 Alfredo Ortega ([@OrtegaAlfredo][5])
 
@@ -352,7 +350,7 @@ defined radio kit.
 
 # Sequoia AVC Edge
 
-### Nick
+## Nick
 
 Nick ([email redacted]) also messed around with the AVC Edge.
 
@@ -379,7 +377,7 @@ in 1989; that is, at least one file there had not been updated since
 1989. The data was from the 2008 election -- Obama, McCain, etc. Nick
 also saw a serial port on back that looked like it could be fun.
 
-### University of Houston Cybersecurity Club
+## University of Houston Cybersecurity Club
 
 Tsukinaki ([email redacted], [@Whiskeys373n][10]) and Joe ([email
 redacted])
@@ -395,7 +393,7 @@ encryption.
 
 # ES&S iVotronic
 
-### Scott
+## Scott
 
 Scott Brion
 
@@ -409,9 +407,9 @@ ES&S iVotronic
    1. The election management software (UNITY)
    2. Compact Flash card
 
-#### Technical Findings
+### Technical Findings
 
-##### PEBs
+#### PEBs
 
 The PEB contains an 8 bit processor, eprom, flash memory, infrared
 port, magnet, serial pins and a battery. The PEBs is identified by a
@@ -426,7 +424,7 @@ follows;
 * pin 5, `Ground`
 * pin 6, `5v`
 
-##### PEB Reader
+#### PEB Reader
 
 The PEB reader contains an EPROM, 8-bit processor, USB port, serial
 pins, and an IRdA receiver port.  Communication to the firmware was
@@ -440,7 +438,7 @@ obtained. The pin-outs for the serial connection are as follows;
 * pin 5, `Ground`
 * pin 6, `5v`
 
-##### Voting Machine
+#### Voting Machine
 
 The iVotronic machine is a touch screen interface with a PEB slot,
 compact flash slot, audio port and standard DB9 serial port.  A
@@ -450,7 +448,7 @@ used to extract data through system functions. There are unique
 passwords for each configuration menu item. These passwords were
 discovered with a google search (“ivotroni password reset PEB”).
 
-### Kris
+## Kris
 
 Kris Hardy ([email redacted])
 
