@@ -356,12 +356,58 @@ encryption.
 
 Scott Brion
 
-At first we were stymied by a password prompt. Brian found a way to do
-a manufacturer reset, which reset the passwords to `svcsvc` and
-`clrclr` according to documentation found through a quick google
-search for "iVotronic PEB password".
+ES&S iVotronic
 
-(JLH: get more from Scott)
+1. Components Analyzed
+   a. PEBs (Personal Election Ballot)
+   b. PEB Reader
+   c. iVotronic Voting machine
+2. Components not analyzed
+   a. The election management software (UNITY)
+   b. Compact Flash card
+
+####Technical Findings
+
+##### PEBs
+
+The PEB contains an 8 bit processor, eprom, flash memory, infrared
+port, magnet, serial pins and a battery. The PEBs is identified by a
+unique serial number. The PEB controls authentication and access to
+the voting machine. The pin-outs for the serial connection are as
+follows;
+
+* pin 1, `pgd`
+Pin1 –
+Pin2 -
+Pin3 – IN 
+Pin4 - OUT
+Pin5 – Ground
+Pin6 – 5v
+
+##### PEB Reader
+
+The PEB reader contains an eprom, 8 bit processor, USB port, serial
+pins and an IR receiver port. Communication to the firmware was
+established through the serial PINs, however nothing of value was
+obtained. The pin-outs for the serial connection are as follows;
+
+* pin 1, `pgd`
+Pin1 –
+Pin2 -
+Pin3 – IN 
+Pin4 - OUT
+Pin5 – Ground
+Pin6 – 5v
+
+##### Voting Machine
+
+The iVotronic machine is a touch screen interface with a PEB slot,
+compact flash slot, audio port and standard DB9 serial port. A
+functioning PEB is required to activate the voting machine. The
+compact flash and serial port are externally accessible and can be
+used to extract data through system functions. There are unique
+passwords for each configuration menu item. These passwords were
+discovered with a google search (“ivotroni password reset PEB”).
 
 ### Kris
 
