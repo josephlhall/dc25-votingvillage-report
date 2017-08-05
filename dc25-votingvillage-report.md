@@ -30,9 +30,9 @@ creation of a Voting Machine Hacking Village. In his words:
 > network that we can test.  Believe it or not no such network has
 > ever been security tested or audited - only separate pieces.
 
-The Village was organized by [Jake Braun][7] (Cambridge Global), [Matt Blaze][8]
-(U Penn), [Harri Hursti][9] (Nordic Innovation Labs), and [Maggie MacAlpine][10]
-(Nordic Innovation Labs).
+The Village was organized by [Jake Braun][7] (Cambridge Global), [Matt
+Blaze][8] (U Penn), [Harri Hursti][9] (Nordic Innovation Labs), and
+[Maggie MacAlpine][10] (Nordic Innovation Labs).
 
 It was already a well established fact that voting machines were (and
 are) hackable, but only a very limited number of people, mostly in
@@ -48,23 +48,23 @@ under strict NDA -- while the DEF CON Voting Village is largely a
 "black box" environment where hackers would need to create, copy, or
 cobble together their own tools.  A common rebuttal to the discoveries
 about the vulnerability of voting machines in the past has been that
-the studies were allowed weeks or months, a length of time 
-unrealistic for an attacker to have with full access to the
-technology.  In contrast, the DEF CON Voting Village had 25 hours over
-three days (10:00-20:00 ET Fri-Sat (27-28 August 2017) and
-10:00-15:00 ET Sun (29 August 2017)); this was a significant but not lengthy amount of time,
-much more realistic in terms of access an attacker may have in
-some jurisdictions where voting equipment may spend days in the home or garage of a
-poll worker before Election Day.
+the studies were allowed weeks or months, a length of time unrealistic
+for an attacker to have with full access to the technology.  In
+contrast, the DEF CON Voting Village had 25 hours over three days
+(10:00-20:00 ET Fri-Sat (27-28 August 2017) and 10:00-15:00 ET Sun (29
+August 2017)); this was a significant but not lengthy amount of time,
+much more realistic in terms of access an attacker may have in some
+jurisdictions where voting equipment may spend days in the home or
+garage of a poll worker before Election Day.
 
 The DEF CON 25 Voting Machine Hacking Village sought to change this:
-we provided an environment (mostly) free from rules where
-anyone could lay their technical hands and minds on examples of the
-machinery of our democracy.  This technical report (and accompanying
-[technical notes][11]) describe the goals of the Voting Village, the
-equipment that was available in the room, and then findings from the
-actual work hackers and security researchers performed during the 25
-hours the Voting Village was open.
+we provided an environment (mostly) free from rules where anyone could
+lay their technical hands and minds on examples of the machinery of
+our democracy.  This technical report (and accompanying [technical
+notes][11]) describe the goals of the Voting Village, the equipment
+that was available in the room, and then findings from the actual work
+hackers and security researchers performed during the 25 hours the
+Voting Village was open.
 
 ## Goals
 
@@ -73,11 +73,12 @@ The goals of the DEF CON Voting Village were:
 * Provide examples of working voting systems for security researchers
   to evaluate, attack, and otherwise study.
 * Educate the DEF CON community and raise awareness about the
-  machinery of US democracy, from the machines to how election technology interacts with legal, market,
-  and normative barriers in elections that do not exist in general
-  purpose computing contexts.
-* Facilitate collaboration between security researchers with different skill sets to opportunistically assess
-  software, hardware, and network security postures of these systems.
+  machinery of US democracy, from the machines to how election
+  technology interacts with legal, market, and normative barriers in
+  elections that do not exist in general purpose computing contexts.
+* Facilitate collaboration between security researchers with different
+  skill sets to opportunistically assess software, hardware, and
+  network security postures of these systems.
 * Start a discussion in the DEF CON community about how security
   researchers and hackers can help to make our election infrastructure
   more safe and secure.
@@ -95,13 +96,14 @@ equipment, including:
 * Diebold Express Poll 5000 electronic pollbook -- version 2.1.1
 * A Simulation of a "Back-Office" Election Environment
 
-Note: A "[DRE voting machine][12]" is an abbreviation for "direct-recording electronic" voting machine which
-designates a voting system that records votes directly to some sort of
-digital storage or memory, in constrast to optical scan systems that
-read the voter's marks directly off of ballot paper. Also, an
-[electronic pollbook][13] is a system that essentially replaces the spiral-bound
-lists of registered voters in every polling place by putting that
-functionality into a laptop, tablet, or kiosk-like computing platform.
+Note: A "[DRE voting machine][12]" is an abbreviation for
+"direct-recording electronic" voting machine which designates a voting
+system that records votes directly to some sort of digital storage or
+memory, in constrast to optical scan systems that read the voter's
+marks directly off of ballot paper. Also, an [electronic pollbook][13]
+is a system that essentially replaces the spiral-bound lists of
+registered voters in every polling place by putting that functionality
+into a laptop, tablet, or kiosk-like computing platform.
 
 ## Brief Descriptions of Interesting Accomplishments
 
@@ -129,17 +131,17 @@ destroyed in the process. This freedom to take such risks accelerates
 the process and can lead to completely new discoveries of new
 vulnerabilities.
 
-The Voting Village expanded the number of people who have now had first hand
-experience and knowledge of these systems. By Sunday, the people who
-started hacking on Friday were the experts and they were teaching and
-helping the new people who just started on Sunday.
+The Voting Village expanded the number of people who have now had
+first hand experience and knowledge of these systems. By Sunday, the
+people who started hacking on Friday were the experts and they were
+teaching and helping the new people who just started on Sunday.
 
 In the village we had a number of technology savvy election officials,
 who came to hack the very machines they use in their jurisdictions to
 run elections.  This was their first opportunity to take a look
 themselves into the machines -- machines they were required to use and
-manage, but were prohibited to study in depth -- and find answers to their own
-questions and learn more about that equipment.
+manage, but were prohibited to study in depth -- and find answers to
+their own questions and learn more about that equipment.
 
 ## Next Year
 
