@@ -76,7 +76,7 @@ including:
   actual evildoer might have little difficulty obtaining these
   materials.
 * The Voting Village provided only an opportunistic sample of voting
-  technologies.  Organizers obtained what they could get our hands on
+  technologies.  Organizers obtained what they could get their hands on
   quickly and cheaply.  The most recently used system available was
   the AVS WinVote, which was decertified for use in 2014.  A number of
   other systems are still in use (AccuVote-TSx, Sequoia AVC Edge, ES&S
