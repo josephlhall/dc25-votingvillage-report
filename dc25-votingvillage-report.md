@@ -203,7 +203,7 @@ from the machines in the Village.
 
 The AVS WinVote did not fare well against the hackers who examined it
 during the Village.  Carsten Schürmann was able to remotely compromise
-this system completely from across the room via WiFi, giving him
+this system completely in about 10 minutes from across the room via WiFi, giving him
 complete control over the machine and the data it holds.  This would
 allow for simple disruption -- he could turn the machine off remotely
 -- targeted voter privacy leakage -- he could mirror the WinVote
