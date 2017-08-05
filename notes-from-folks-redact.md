@@ -250,6 +250,49 @@ Apparently ES&S sold refurbished units as recently as 2016:
 
 # AVS WinVote
 
+### Carsten Schürmann
+
+From Carsten:
+
+I was the one who hacked the WinVote machine in 90 minutes.
+
+I did neither touch nor get closer to the machine then 10 meters.
+
+The reason that it took me 90 minutes was not that I had to buy a USB
+keyboard, but that I went to Barbara Simons talk, which took 60
+minutes.  And then there was 20 minutes of Harri Hursti’s introduction
+to the voting machine hacking village, give or take a few.  (JLH
+erroneously attributed on a [public radio program][38] that the first
+hack of Friday of the AVS WinVote to Nick below, who went out to get a
+keyboard.)  The hack was not a USB hack, it was wireless hack.  Recall
+that the the Winvote always has wireless turned on.
+
+It took me a few minutes to figure out the IP address of the machine
+(which was `100.100.7.151`).
+
+It too me a few seconds to break into the machine and get access to
+the vote database using he [MS03-26-DCOM][39] exploit from 2003.
+
+* I could read and update the vote database;
+* I could mirror whatever was shown on the machine on my laptop; and,
+* I could turn the machine off (which always surprised the people
+  standing around it).
+
+The bottom-line is that the WinVote can be hacked from a car outside
+the polling station (but still within range of the wireless signal)
+and as far as 150 —300 ft away, without much preparation and
+incredible quickly and effectively.
+
+For example, this can be leveraged across an election jurisdiction;
+You can cover a lot of ground driving from polling station to polling
+station in the afternoon of Election Day.
+
+The machines have been used in 2004, 2008, 2012, and the exploit I
+have used was applicable already then.
+
+BTW, when you use Remote Desktop (password: `admin`), you can even start
+the Task Manager wirelessly — with all administrator privileges.
+
 ### Nick
 
 Nick ([email redacted])
@@ -592,3 +635,5 @@ different information!)
 [35]: https://github.com/josephlhall/dc25-votingvillage-report/blob/master/resources/ExPoll.resources
 [36]: https://github.com/josephlhall/dc25-votingvillage-report/blob/master/resources/options.data
 [37]: https://github.com/josephlhall/dc25-votingvillage-report/blob/master/resources/schema.sqlite3
+[38]: https://www.sciencefriday.com/segments/hacking-the-vote-how-can-we-secure-our-voting-systems/
+[39]: https://technet.microsoft.com/en-us/library/security/ms03-026.aspx
