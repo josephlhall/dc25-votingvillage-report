@@ -68,25 +68,31 @@ Voting Village was open.
 
 ## Limitations
 
-There are significant limitations of the work undertaken at the Voting
-Village, including:
+There were significant limitations of the work at the Voting Village,
+including:
 
 * Participants had no access to source code, operational data or other
-  proprietary information that is not legally available.  An actual
-  evildoer might have little difficulty obtaining these materials.
-
+  proprietary information that is not otherwise legally available.  An
+  actual evildoer might have little difficulty obtaining these
+  materials.
 * The Voting Village provided only an opportunistic sample of voting
   technologies.  Organizers obtained what they could get our hands on
-  quickly and cheaply.
-
+  quickly and cheaply.  The most recently used system available was
+  the AVS WinVote, which was decertified for use in 2014.  A number of
+  other systems are still in use (AccuVote-TSx, Sequoia AVC Edge, ES&S
+  iVotronic), but most if not all of these machines had ballot data
+  from the 2008 general election, so the software is likely quite old.
 * The Village had no access to optical scan or DRE systems with a
-  VVPAT.
-
+  VVPAT.  These systems -- and those involving ballot marking devices
+  -- are the most software-independent and auditable systems, and are
+  increasingly popular and heavily used.
 * Finally, there was no access to any backend provisioning, counting,
   or voter registration systems.  These kinds of systems are not
-  generally available on the open market.  Note: the evidence from the
-  2016 election seems to indicate strongly that these were the primary
-  target of cyberattacks.
+  generally available on the open market.  Note: This is especially
+  significant as the evidence from the 2016 election seems to indicate
+  strongly that these types of voting technologies -- not voting
+  machines themselves -- were the primary target of Russian GRU
+  attacks.
 
 ## Goals
 
