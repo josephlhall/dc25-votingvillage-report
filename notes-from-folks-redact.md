@@ -359,12 +359,12 @@ Scott Brion
 ES&S iVotronic
 
 1. Components Analyzed
-   a. PEBs (Personal Election Ballot)
-   b. PEB Reader
-   c. iVotronic Voting machine
+    a. PEBs (Personal Election Ballot)
+    b. PEB Reader
+    c. iVotronic Voting machine
 2. Components not analyzed
-   a. The election management software (UNITY)
-   b. Compact Flash card
+    a. The election management software (UNITY)
+    b. Compact Flash card
 
 #### Technical Findings
 
