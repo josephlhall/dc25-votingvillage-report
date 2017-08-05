@@ -161,10 +161,13 @@ vulnerabilities.
 
 ### Vigorous, Diverse Attendance
 
-The Voting Village expanded the number of people who have now had
-first hand experience and knowledge of these systems. By Sunday, the
-people who started hacking on Friday were the experts and they were
-teaching and helping the new people who just started on Sunday.
+We did not keep count of how many entered the Village but we would
+estimate that thousands of DEF CON attendees joined the Village for at
+least some of their time at the con. The Voting Village expanded the
+number of people who have now had first hand experience and knowledge
+of these systems. By Sunday, the people who started hacking on Friday
+were the experts and they were teaching and helping the new people who
+just started on Sunday.
 
 In the village we had a number of technology savvy election officials,
 who came to hack the very machines they use in their jurisdictions to
