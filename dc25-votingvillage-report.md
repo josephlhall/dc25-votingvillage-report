@@ -127,7 +127,7 @@ equipment, including:
 Note: A "[DRE voting machine][12]" is an abbreviation for
 "direct-recording electronic" voting machine which designates a voting
 system that records votes directly to some sort of digital storage or
-memory, in constrast to optical scan systems that read the voter's
+memory, in contrast to optical scan systems that read the voter's
 marks directly off of ballot paper. Also, an [electronic pollbook][13]
 is a system that essentially replaces the spiral-bound lists of
 registered voters in every polling place by putting that functionality
@@ -179,11 +179,11 @@ As covered by the press (["Personal Info of 650,000 Voters Discovered
 on Poll Machine Sold on Ebay"][15]), the ExpressPoll electronic
 pollbooks that organizers obtained for the Voting Village were not
 properly decommissioned, and they had live voter file data covering
-654,517 voters from Shelby County, Tennessee circa 2008.  The database
-schema (i.e, the list of elements in the database) included the
-following data elements: `status` (voter registration status),
-`dateOfBirth`, `precinctId`, `countyId`, `partyId`, `language`,
-`idRequired`, `absentee`, `ssnLast4`, `driversLicense`,
+654,517 voters from Shelby County, Tennessee circa 2008.  The
+[database schema][17] (i.e, the list of elements in the database)
+included the following data elements: `status` (voter registration
+status), `dateOfBirth`, `precinctId`, `countyId`, `partyId`,
+`language`, `idRequired`, `absentee`, `ssnLast4`, `driversLicense`,
 `affidavitNumber` (serial number associated with voter registration
 application), `houseNumber`, `streetName`, `apartmentNumber`, `city`,
 `zip`, `nameFirst`, `nameMiddle`, `nameLast`, `middleInitial`,
@@ -267,3 +267,4 @@ Please get in touch with us if you have other ideas!
 [14]: http://www.crypto.com/
 [15]: http://gizmodo.com/personal-info-of-650-000-voters-discovered-on-poll-mach-1797438462
 [16]: http://www.nbcnews.com/tech/tech-news/hackers-were-able-breach-then-rick-roll-voting-machine-within-n788001
+[17]: https://github.com/josephlhall/dc25-votingvillage-report/blob/master/resources/schema.sqlite3
