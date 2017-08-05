@@ -203,18 +203,18 @@ from the machines in the Village.
 
 The AVS WinVote did not fare well against the hackers who examined it
 during the Village.  Carsten Schürmann was able to remotely compromise
-this system completely in about 10 minutes from across the room via WiFi, giving him
-complete control over the machine and the data it holds.  This would
-allow for simple disruption -- he could turn the machine off remotely
--- targeted voter privacy leakage -- he could mirror the WinVote
-display remotely on his own machine -- and, most troublingly, vote
-changing attacks -- he could read and write software to the WinVote
-and change its vote database without detection.  This became even more
-stark when a hacker, Nick, plugged a USB keyboard into the back of the
-machine -- this is a proximate attack as opposed to Carsten's remote
-attack.  Nick was able to hit the windows command `ctrl-alt-del`, get
-access to the Windows CE Task Manager, install WinAMP, and [play a
-full video and audio Rick roll][16].
+this system completely in about 10 minutes from across the room via
+WiFi, giving him complete control over the machine and the data it
+holds.  This would allow for simple disruption -- he could turn the
+machine off remotely -- targeted voter privacy leakage -- he could
+mirror the WinVote display remotely on his own machine -- and, most
+troublingly, vote changing attacks -- he could read and write software
+to the WinVote and change its vote database without detection.  This
+became even more stark when a hacker, Nick, plugged a USB keyboard
+into the back of the machine (a proximate attack as opposed to
+Carsten's remote attack).  Nick was able to hit the windows command
+`ctrl-alt-del`, get access to the Windows CE Task Manager, install
+WinAMP, and [play a full video and audio Rick roll][16].
 
 ## Next Year
 
