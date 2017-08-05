@@ -1,6 +1,6 @@
 # Report from the DC25 Voting Machine Hacking Village
 
-Author(s): [Joseph Lorenzo Hall][1], [Harri Hursti][4]
+Author(s): [Matt Blaze][14], [Joseph Lorenzo Hall][1], [Harri Hursti][4]
 
 ***--DRAFT--THIS IS A DRAFT AND UNOFFICIAL UNTIL WE AGREE ON A RELEASE
    CANDIDATE--DRAFT--***
@@ -65,6 +65,28 @@ notes][11]) describe the goals of the Voting Village, the equipment
 that was available in the room, and then findings from the actual work
 hackers and security researchers performed during the 25 hours the
 Voting Village was open.
+
+## Limitations
+
+There are significant limitations of the work undertaken at the Voting
+Village, including:
+
+* Participants had no access to source code, operational data or other
+  proprietary information that is not legally available.  An actual
+  evildoer might have little difficulty obtaining these materials.
+
+* The Voting Village provided only an opportunistic sample of voting
+  technologies.  Organizers obtained what they could get our hands on
+  quickly and cheaply.
+
+* The Village had no access to optical scan or DRE systems with a
+  VVPAT.
+
+* Finally, there was no access to any backend provisioning, counting,
+  or voter registration systems.  These kinds of systems are not
+  generally available on the open market.  Note: the evidence from the
+  2016 election seems to indicate strongly that these were the primary
+  target of cyberattacks.
 
 ## Goals
 
@@ -191,3 +213,4 @@ Please get in touch with us if you have other ideas!
 [11]: https://github.com/josephlhall/dc25-votingvillage-report/blob/master/notes-from-folks-redact.md
 [12]: https://en.wikipedia.org/wiki/DRE_voting_machine
 [13]: https://en.wikipedia.org/wiki/Electronic_pollbook
+[14]: http://www.crypto.com/
