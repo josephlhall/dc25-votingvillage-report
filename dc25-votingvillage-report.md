@@ -145,7 +145,76 @@ into a laptop, tablet, or kiosk-like computing platform.
 
 ### Diebold ExpressPoll 5000
 
+While the devices detailed above are types of vote-recording and
+-casting equipment, the Village also had available two other election
+technologies: an electronic pollbook (the ExpressPoll 5000) and a
+simulation of a back-office election network.
+
+The ExpressPoll 5000 was subject to a significant degree of scrutiny
+by Voting Village participants.
+
+#### Voter Data Leakage
+
+Early into the work of the Voting Village it was discovered that the
+ExpressPoll units the village organizers had obtained were not
+properly decomissioned and still contained voter records.
+Specifically, almost 650k voter records from Shelby County, Tennessee
+were still present on the pollbooks, containing names, residential
+addresses, dates of birth, driver's license numbers as well as a
+number of other potentially sensitive fields.  Village organizers
+secured the data, removed it from the units available in the village,
+and one village organizer began a process of disclosure.
+
+#### Technical Findings
+
+The unit does not have much in the way of physical security
+protections, allowing someone with a philips-head screwdriver to
+remove and replace the election media (or simply remove it to
+accomplish a denial-of-service attack).  The default username and
+password for this unit is available with a simple google search, so
+thos values should be changed (it was unclear if these values were
+hard-coded into the software as we have seen in other older voting
+systems).  There are also two USB ports that seem unrestricted.
+
+The ExpressPoll runs on an obsolete embedded operating system, Windows
+CE 5, and validates no input or software updates (it would load
+without any prompting or checking both a new bootloader and OS image).
+This would allow attackers to inject a new bootloader (which appears
+to be proprietary) or Windows CE image without detection.  Similarly,
+the unit reads a file `ExPoll.resources` that contains all the
+parameters for the election that can also be injected with attacker
+parameters.  When the pollbook software is launched, this file is
+loaded into memory and then saved to non-volatile storage for use in
+future elections.  Village hackers were able to change the parameters
+in this file, get it to load and have their own parameters loaded (in
+this case they bricked an ExpressPoll unit, but were confident that
+further testing would have resulted in successful modification of
+pollbook parameters).
+
+Hackers attempted to crash the main application by loading large
+amounts of data into the database fields, but this only slowed the
+device, instead of crashing the main application and potentially
+allowing further access.  The unit's networking seemed to be pretty
+well-locked down with essentially only data being broadcast from the
+unit and hackers were unable to make a successful connection and
+inject data through the network interface.
+
+There was some hope that changing the `Consolidation_ID` on a
+smartcard that the unit writes to in order to authorize a voter would
+have silently discarded that voter's vote, but that was not possible
+without a smart card reader/writer which was unavailable.
+
+The device keeps an event log with login, logout, power, load, and
+open events.  However, this log would not be sufficient to prevent
+tampering; it is only written by the device and does not reflect any
+file changes that occur on the storage media (and, of course, is not
+integrity protected).
+
 ### Back-Office Simulated Network
+
+(JLH: Unfortunately, I have been unable to get intouch with Bash to
+get more details on how this went.  I will remove this section if I
+can't get in touch with him soon.)
 
 ## Findings
 
