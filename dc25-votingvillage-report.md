@@ -143,6 +143,8 @@ into a laptop, tablet, or kiosk-like computing platform.
 
 ### Sequoia AVC Edge
 
+The Sequoia appeared to contain at the very least a tally of write-in votes, and possibly in some form the names of the individuals who cast those votes, on its flash memory in a file titled *WRITEIN.OFF*.
+
 ### Diebold ExpressPoll 5000
 
 While the devices detailed above are types of vote-recording and
