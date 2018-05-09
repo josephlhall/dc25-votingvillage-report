@@ -446,7 +446,7 @@ functioning PEB is required to activate the voting machine.  The
 compact flash and serial port are externally accessible and can be
 used to extract data through system functions. There are unique
 passwords for each configuration menu item. These passwords were
-discovered with a google search (“ivotroni password reset PEB”).
+discovered with a google search (“ivotronic password reset PEB”).
 
 ## Kris
 
